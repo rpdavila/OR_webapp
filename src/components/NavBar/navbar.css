@@ -1,0 +1,25 @@
+.nav-bar {
+    position: fixed;
+    top: 0;
+    background-color: steelblue;
+    width: 100%;
+    height: auto;
+}
+
+.nav-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    grid-gap: 20px;
+    grid-auto-flow: column;
+    justify-content: flex-end;
+}
+
+.nav-link {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: whitesmoke;
+    }

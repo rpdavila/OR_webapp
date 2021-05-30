@@ -1,0 +1,39 @@
+.footer {
+    margin-top: 50px;
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    background-color: steelblue;
+    justify-content: center;
+    color: whitesmoke;
+    padding: 20px 0;
+}
+
+.sm-container {
+    height: auto;
+    width: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.cr-container {
+    text-align: center;
+}
+.f-social {
+    padding: 11px;
+    width: 29px;
+    height: auto;
+}
+
+.insta-social {
+    padding: 11px;
+    width: 29px;
+    height: auto;
+}
+
+.u-tube-social {
+    padding: 11px;
+    width: 29px;
+    height: auto;
+}

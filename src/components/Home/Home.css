@@ -1,0 +1,61 @@
+.container {
+    width: 100%;
+    margin-top: 20px;
+    display: grid;
+    grid-auto-flow: column;
+    justify-content: space-evenly;
+}
+.title {
+    color: steelblue;
+    width: 400px;
+    height: auto;
+    align-self: center;
+}
+
+.title h1 {
+    margin: 0;
+    justify-content: center;
+    text-align: center;
+    text-decoration: underline;
+}
+
+.title p {
+    margin-top: 0;
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+.photo {
+    border-radius: 20px;
+    margin: 0;
+    padding: 0;
+    width: 375px;
+    height: auto;
+    box-shadow: rgba(60, 64, 67, 0.3) 0 1px 2px 0, rgba(60, 64, 67, 0.15) 0 1px 3px 1px;
+}
+
+.sm-container-home {
+    height: auto;
+    width: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.f-social {
+    padding: 11px;
+    width: 29px;
+    height: auto;
+}
+
+.insta-social {
+    padding: 11px;
+    width: 29px;
+    height: auto;
+}
+
+.u-tube-social {
+    padding: 11px;
+    width: 29px;
+    height: auto;
+}
