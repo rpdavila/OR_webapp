@@ -3,7 +3,7 @@ import {navLinks} from "./navLinks";
 import Link from "../Router/Link";
 import './navbar.css'
 
-const NavBar = () => {
+const NavBar = () => {  
     return (
         <div className={'nav-bar'}>
             <ul className={'nav-list'}>
@@ -11,7 +11,7 @@ const NavBar = () => {
                     return(
                         <li key={index}>
                             <Link href={item.url}
-                               className={item.cName}
+                            className={item.cName}
                             >
                                 {item.title}
                             </Link>

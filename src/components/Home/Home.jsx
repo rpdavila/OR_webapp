@@ -16,8 +16,12 @@ const Home = () => {
                 <div className={'sm-container-home'}>
                     {/*<img className={'f-social'} src={Facebook} alt={'facebook'}/>*/}
                     {/*<img className={'insta-social'} src={instagram} alt={'instagram'}/>*/}
-                    <img className={'u-tube-social'} src={u_tube} alt={'youtube'}/>
-                    <img className={'linked-in-home'} src={linked_in} alt={'linked in'}/>
+                    <a href={'https://www.youtube.com/channel/UCDzcynEIOQYCQJFJekmAASQ'}>
+                        <img className={'u-tube-social'} src={u_tube} alt={'youtube'}/> 
+                    </a>
+                    <a href={'https://www.linkedin.com/in/dr-orlando-ruiz-384a9089/'}>
+                        <img className={'linked-in-home'} src={linked_in} alt={'linked in'}/>
+                    </a>
                 </div>
             </div>
             <div className={'photo-container'}>

@@ -18,7 +18,11 @@ export const navLinks = [
         title: 'About',
         url: '/about',
         cName: 'nav-link'
+    },
+    {
+        title: 'Sign In',
+        url: '/signin',
+        cName: 'nav-link'
     }
-
 ]
 
