@@ -1,0 +1,25 @@
+.lesson-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color:whitesmoke;
+    border-radius: 20px;
+    width: auto;
+    height: 225px;
+    transition: ease-out .5s;
+    background-size: 100%;
+    opacity: .5;
+    
+}
+
+
+.lesson-card > p {
+    font-size: 1.5rem;
+}
+.lesson-card:hover {
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+    transform: scale(1.1);
+    transition: ease-in .5s;
+    opacity: 1;
+} 
+

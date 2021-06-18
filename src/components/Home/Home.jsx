@@ -1,17 +1,28 @@
 import React from "react";
-import Image from "./IMG-3118.jpg"
+import Image from "../images/Paint.jpg"
+import Photo from "../images/PosterOR.png"
 import "./Home.css"
 // import Facebook from "../images/SocialMedia/f_logo_RGB-Blue_58.png";
 // import instagram from "../images/SocialMedia/Instagram_Glyph_Gradient_RGB.png";
 import u_tube from "../images/SocialMedia/youtube_social_squircle_red.png";
-import linked_in from "../images/SocialMedia/linkedin.png"
+import linked_in from "../images/SocialMedia/linkedin.png";
 
+const backgroundImage = {
+    backgroundImage: `linear-gradient(
+        rgba(0, 0, 0, 0.3),
+        rgba(0, 0, 0, 0.3)), url(${Image})`,
+    backgroundSize: 'cover'
+}
+
+const portrait = {
+    backgroundImage: `url(${Photo})`,
+}
 
 const Home = () => {
     return (
-        <div className={'container'}>
+        <div className={'container'} style={backgroundImage}>
+            <div className={'photo'} style={portrait}>
             <div className={'title'}>
-                <h1>Dr. Orlando Ruiz</h1>
                 <p><strong>Musician, Arranger, Educator, Soloist</strong></p>
                 <div className={'sm-container-home'}>
                     {/*<img className={'f-social'} src={Facebook} alt={'facebook'}/>*/}
@@ -24,8 +35,7 @@ const Home = () => {
                     </a>
                 </div>
             </div>
-            <div className={'photo-container'}>
-                <img className={'photo'} src={Image} alt={'trumpet'}/>
+            
             </div>
         </div>
     )

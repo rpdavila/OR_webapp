@@ -1,14 +1,21 @@
 import React from "react";
 import { solfege, musicElements, trumpetFundamentals, trumpetGoals} from "./ServicesList"
 import "./Services.css"
+import Image from "../images/Paint.jpg"
 
+const backgroundImage = {
+    backgroundImage: `linear-gradient(
+        rgba(0, 0, 0, 0.3),
+        rgba(0, 0, 0, 0.3)), url(${Image})`,
+    backgroundSize: 'cover'
+}
 const Services = () => {
     return(
-        <div className={"services-main-container"}>
+        <div className={"services-main-container"} style={backgroundImage}>
             <div className={'services-title'}>
                 <h1>Pedagogical Services</h1>
             </div>
-            <div className={'services container'}>
+            <div className={'services-container'}>
                 <div className={'english-pedagogy'}>
                     <h1>General Music Pedagogy</h1>
                     <p>Have you ever had music lessons before? If you have or have not, I can help with any level

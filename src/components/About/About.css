@@ -9,16 +9,19 @@
 }
 
 .img {
+    margin-top: 80px;
     margin-left: 20px;
     width: 550px;
     height: auto;
     border-radius: 20px;
+    filter: grayscale(100%);
 }
 
 /*text*/
 .about-text {
     text-indent: 50px;
     margin: 0 20px 0;
+    color: whitesmoke;
 }
 
 .about-title {

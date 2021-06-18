@@ -1,13 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux'
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { isSignedIn, hasError, isUser } from './Redux/reducers';
+import { createStore, applyMiddleware, combineReducers } from 'redux';
+import thunk from 'redux-thunk';
+import logger from 'redux-logger';
+
+const rootReducer = combineReducers({ isSignedIn, hasError, isUser });
+const store = createStore(rootReducer, applyMiddleware(thunk, logger));
 
 ReactDOM.render(
-  <React.StrictMode>
+  <Provider store={store}>
     <App />
-  </React.StrictMode>,
+  </Provider>,
   document.getElementById('root')
 );
 

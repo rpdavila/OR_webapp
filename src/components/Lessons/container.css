@@ -1,0 +1,42 @@
+.lesson-container {
+    width: 100%;
+    height:auto;
+    display:flex;
+    justify-content: center;
+    flex-flow: column;
+}
+
+.title-container {
+    display: flex;
+    justify-content: center;
+    margin: 0 20px;
+    text-align: center;
+    color: white;
+    border-radius: 20px;
+    text-shadow: 5px 2px 2px #000000;
+}
+
+.main-container {
+    display:flex;
+    flex-direction: row;
+    margin-bottom: 30px;
+}
+
+.lesson-img-container {
+    width: 600px;
+    height: auto;
+    border-radius: 20px;
+    background-position: center;
+    text-shadow: 5px 2px 2px #000000;
+    
+}
+
+.lesson-info {
+    margin-top: 50px;
+    width: 100%;
+    height: auto;
+    display: grid;
+    justify-content: center;
+    grid-gap: 20px;
+    grid-template-columns: repeat(auto-fill, 400px); 
+}

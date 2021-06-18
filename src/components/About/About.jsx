@@ -1,10 +1,17 @@
 import React from "react";
 import image from "./IMG-2910.JPG"
+import bphoto from "../images/Paint.jpg"
 import './About.css'
 
+const backgroundImage = {
+    background: `linear-gradient(
+        rgba(0, 0, 0, 0.5),
+        rgba(0, 0, 0, 0.5)), url(${bphoto})`,
+    backgroundSize: 'cover'
+}
 const About = () => {
     return (
-        <div className={'about-container'}>
+        <div className={'about-container'} style={backgroundImage}>
             <div className={'about-image-container'}>
                 <img className={'img'} src={image} alt={''}/>
             </div>
