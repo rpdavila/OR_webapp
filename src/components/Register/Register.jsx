@@ -19,6 +19,7 @@ const Register = () => {
     const [registerName, setRegisterName] = useState('');
     const [registerEmail, setRegisterEmail] = useState('');
     const [registerPassword, setRegisterPassword] = useState('');
+    const [registerPhone, setRegisterPhone] = useState('');
     const [loading, setLoading] = useState(false);
 
 
@@ -34,9 +35,13 @@ const Register = () => {
         setRegisterPassword(event.target.value)
     }
 
+    const onPhoneChange = (event) => {
+        setRegisterPhone(event.target.value)
+    }
+
     const validateEmail = () => {
-        const regx = /^([a-zA-Z0-9!@#$%*&().]+)@([a-zA-Z1-9]+)\.([a-z]+)$/
-        if (regx.test(registerEmail)){
+        const regxEmail = /^([a-zA-Z0-9!@#$%*&().]+)@([a-zA-Z1-9]+)\.([a-z]+)$/
+        if (regxEmail.test(registerEmail)){
             handleSubmit()
         }else{
             dispatch(setError('Email is not valid'))
@@ -46,7 +51,7 @@ const Register = () => {
   
     const handleSubmit = () => { 
         setLoading(true)
-        if(!registerName || !registerEmail || !registerPassword) {
+        if(!registerName || !registerEmail || !registerPassword || !registerPhone) {
             setLoading(false)
             dispatch(setError('All fields are required'))
         } else {
@@ -56,7 +61,8 @@ const Register = () => {
             body: JSON.stringify({
                 name: registerName,
                 email: registerEmail,
-                    password: registerPassword
+                password: registerPassword,
+                phone: registerPhone
                 })
             })
             .then(response => {
@@ -82,48 +88,51 @@ const Register = () => {
     }
 
     if (loading) {
-        return(
-            <h1>Loading...</h1>
-        )
+        return <h1>Loading...</h1>
     } else if (!user) {
-        return(
-            <div className='register-container' style={backgroundImage}>
-                <article>
-                    <main>     
-                        <div className={'form-container'}>
-                            <span>{error}</span>
-                            <label htmlFor='name'><b>Name:</b></label><br/>
-                            <input 
-                                type='name' 
-                                name='name' 
-                                id='name'
-                                onChange={onNameChange}
-                                required/><br/>
-                            <label htmlFor='email'><b>Email:</b></label><br/>
-                            <input 
-                                type='email' 
-                                name='email' 
-                                id='email'
-                                onChange={onEmailChange}
-                                required/><br/>
-                            <label htmlFor='password'><b>Password:</b></label><br/>
-                            <input 
-                                type='password' 
-                                name='pwd' 
-                                id='pwd' 
-                                onChange={onPasswordChange}
-                                required/><br/>
-                            <input
-                                type='submit' 
-                                name='submit' 
-                                id='submit'
-                                onClick={validateEmail}
-                            />
-                        </div>    
-                    </main>
-                </article>
-            </div>
-        )
+        return<div className='register-container' style={backgroundImage}>
+            <article>
+                <main>     
+                    <div className={'form-container'}>
+                        <span>{error}</span>
+                        <label htmlFor='name'><b>Name:</b></label><br/>
+                        <input 
+                            type='name' 
+                            name='name' 
+                            id='name'
+                            onChange={onNameChange}
+                            required/><br/>
+                        <label htmlFor='email'><b>Email:</b></label><br/>
+                        <input 
+                            type='email' 
+                            name='email' 
+                            id='email'
+                            onChange={onEmailChange}
+                            required/><br/>
+                        <label htmlFor='phone'><b>Phone Number:</b></label><br/>
+                        <input 
+                            type='phone' 
+                            name='phone' 
+                            id='phone'
+                            onChange={onPhoneChange}
+                            required/><br/>
+                        <label htmlFor='password'><b>Password:</b></label><br/>
+                        <input 
+                            type='password' 
+                            name='pwd' 
+                            id='pwd' 
+                            onChange={onPasswordChange}
+                            required/><br/>
+                        <input
+                            type='submit' 
+                            name='submit' 
+                            id='submit'
+                            onClick={validateEmail}
+                        />
+                    </div>    
+                </main>
+            </article>
+        </div>
     } else if (user) {
         return(
             <div className={'success'} style={backgroundImage}>
@@ -132,9 +141,7 @@ const Register = () => {
             </div>    
         )
     } else if (error) {
-        return(
-            <h1>{error}</h1>
-        ) 
+        return<h1>{error}</h1> 
     } 
 }
 
