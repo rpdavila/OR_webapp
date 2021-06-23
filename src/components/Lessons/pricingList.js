@@ -41,7 +41,5 @@ export const lessonPricingList = [
         time: '(4) 60',
         price: 260
     }
-    
-
 ]
     

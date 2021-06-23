@@ -1,7 +1,9 @@
 import { 
+    CART,
     CHANGE_IS_SIGNED_IN,
     CHANGE_USER,
-    ERR 
+    ERR,
+    REMOVE_CART_ITEM
  } from './constants'
 
 
@@ -18,4 +20,14 @@ export const setUser = (user) => ({
 export const setError = (error) => ({
     type: ERR,
     payload: error
+})
+
+export const setCart = (cart) => ({
+    type: CART,
+    payload: cart
+})
+
+export const setRemoveCartItem = (cart) => ({
+    type: REMOVE_CART_ITEM,
+    payload: cart
 })

@@ -1,5 +1,5 @@
 import React from 'react';
-import {lessonPricingList} from './pricingList'
+import { lessonPricingList } from './pricingList'
 import LessonCard from '../Card/LessonCard'
 import './container.css'
 import photo from './Laughing.png'
@@ -30,15 +30,16 @@ const Lessons = () => {
             </div>
             <div className={'title-container'} style={DivStyle2}>
                 <h3>Free 30 min. consultation with Dr. Ruiz to customize your lessons and focus on your goals, 
-                when you sign for first sign up for any Lesson Package.</h3>
+                when you sign up for your first lesson package.</h3>
             </div>
             <div className={'main-container'}>
                 <div className={'lesson-img-container'} style={divStyle}/>     
                 <div className={'lesson-info'}>
-                    {lessonPricingList.map((item, index)=> {
+                    {lessonPricingList.map((item, index) => {
                     return(
                         <LessonCard 
                             key={index} 
+                            id={item.id}
                             title={item.title} 
                             price={item.price} 
                             time={item.time} />

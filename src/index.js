@@ -4,12 +4,12 @@ import { Provider } from 'react-redux'
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { isSignedIn, hasError, isUser } from './Redux/reducers';
+import { isSignedIn, hasError, isUser, updateCart } from './Redux/reducers';
 import { createStore, applyMiddleware, combineReducers } from 'redux';
 import thunk from 'redux-thunk';
 import logger from 'redux-logger';
 
-const rootReducer = combineReducers({ isSignedIn, hasError, isUser });
+const rootReducer = combineReducers({ isSignedIn, hasError, isUser, updateCart });
 const store = createStore(rootReducer, applyMiddleware(thunk, logger));
 
 ReactDOM.render(

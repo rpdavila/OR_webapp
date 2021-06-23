@@ -30,7 +30,6 @@ const Signin = () => {
         setSignInPassword(event.target.value)
     }
 
-
     const handleSubmit = () => {
         setLoading(true)
         if (!signInEmail || !signInPassword){
@@ -74,7 +73,7 @@ const Signin = () => {
         return(
         <h1>Loading...</h1>
         )
-    }else if (!user){
+    } else if (!user) {
         return(
             <div className='sign-in-container' style={backgroundImage}>
                 <article>
@@ -107,14 +106,41 @@ const Signin = () => {
             </div>
         )
     } else if (user && isSignedIn) {
-        return(
-            <DashBoard/>
-        )
+        return<DashBoard/>
     } else if (error) {
-        return(
-            {error}
-        )
+        return error
     }
+    return (
+        <div className='sign-in-container' style={backgroundImage}>
+            <article>
+                <main>     
+                    <div className={'form-container'}>
+                        <span>{error}</span>
+                        <label htmlFor='email'><b>Email:</b></label><br/>
+                        <input 
+                            type='email' 
+                            name='email' 
+                            id='email'
+                            onChange={onEmailChange}
+                            required/><br/>
+                        <label htmlFor='password'><b>Password:</b></label><br/>
+                        <input 
+                            type='password' 
+                            name='pwd' 
+                            id='pwd' 
+                            onChange={onPasswordChange}
+                            required/><br/>
+                        <input 
+                            type='submit' 
+                            name='submit' 
+                            id='submit'
+                            onClick={handleSubmit}
+                        />
+                    </div>    
+                </main>
+            </article>
+        </div>
+    )
 }
 
 export default Signin;

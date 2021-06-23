@@ -1,0 +1,31 @@
+.shopping-cart-container {
+    margin: 100px 0 25px 0;
+    display: grid;
+    grid-template-rows: auto;
+    grid-gap: 20px;
+    justify-content: center;
+}
+.cart-card {
+    width: 250px;
+    border: 1px solid black;
+    border-radius: 10px;
+    background-color: whitesmoke;
+}
+.cart-card > button {
+    margin: 10px;
+    background-color: whitesmoke;
+    border: 1px solid black;
+    border-radius: 20px;
+       
+}
+
+.cart-card > * {
+    margin: 0 10px;
+}
+
+.purchase-items {
+    background-color: whitesmoke;
+    border: 1px solid black;
+    border-radius: 20px;
+}
+
