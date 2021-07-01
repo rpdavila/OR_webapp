@@ -6,7 +6,7 @@ export const navLinks = [
     },
     {
         title: 'Pedagogical Model',
-        url: '/pm',
+        url: '/services',
         cName: 'nav-link'
     },
     {

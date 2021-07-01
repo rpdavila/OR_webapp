@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux'
-import { setError } from '../../Redux/actions'
+import React, { useState, useEffect } from 'react';
+import { useForm } from "react-hook-form";
 import Image from "../images/Paint.jpg"
 import './contact.css';
 
+const SITE_KEY = process.env.SITE_KEY;
 
 const backgroundImage = {
     backgroundImage: `linear-gradient(
@@ -13,98 +13,129 @@ const backgroundImage = {
 }
 
 const Contact = () => {
-    const dispatch = useDispatch()
-    // const { user } = useSelector((state) => state.isUser);
-    const { error } = useSelector((state) => state.hasError);
-    const [contactName, setContactName] = useState('');
-    const [contactEmail, setContactEmail] = useState('');
-    const [contactPhone, setContactPhone] = useState('');
-    const [contactSubject, setContactSubject] = useState('')
-    const [contactMessage, setContactMessage] = useState('')
-    // const [loading, setLoading] = useState(false);
+    const { register, handleSubmit, formState: { errors } } = useForm();
+    const [loading, setLoading] = useState(null);
+    const [response, setResponse] = useState({});
+    const regxName = /^[a-z ,.'-]{2,}$/i
+    const regxEmail = /^\S+@\S+$/
+    const regxPhone = /^\d{3}-\d{3}-\d{4}$/
 
-
-    const onNameChange = (event) => {
-        setContactName(event.target.value)
-    }
-    
-    const onEmailChange = (event) => {        
-        setContactEmail(event.target.value)    
-    }
-    
-
-    const onPhoneChange = (event) => {
-        setContactPhone(event.target.value)
+    const onSubmit = (data, e) => {
+        e.preventDefault();
+        setLoading(true);
+        window.grecaptcha.ready(function() {
+            window.grecaptcha.execute(SITE_KEY, {action: 'submit'}).then(function(token) {
+            submitData(data,token); 
+            });
+        });
     }
 
-    const validatefields = () => {
-        const regxEmail = /^([a-zA-Z0-9!@#$%*&().]+)@([a-zA-Z1-9]+)\.([a-z]+)$/
-        const regxPhone = /^\d{3}-\d{3}-\d{4}$/
-        if (!regxEmail.test(contactEmail)){
-            dispatch(setError('Email is not valid'))
-        }else if(!regxPhone.test(contactPhone)){
-            dispatch(setError('Phone number must have dashes inbetween groups'))
+    const submitData = (data, token) => {
+        // call a backend API to verify reCAPTCHA response
+        fetch('http://localhost:3000/verify', {
+          method: 'POST',
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            "name": data.name,
+            "email": data.email,
+            "phone": data.phone,
+            "subject": data.subject,
+            "message": data.message,
+            "token": token
+          })
+        })
+        .then(res => res.json())
+        .then(res => {
+          setLoading(false);
+          setResponse(res)
+        });
+    }
+
+
+    useEffect(() => {
+        const loadScriptByURL = (id, url, callback) => {
+          const isScriptExist = document.getElementById(id);
+       
+          if (!isScriptExist) {
+            var script = document.createElement("script");
+            script.type = "text/javascript";
+            script.src = url;
+            script.id = id;
+            script.onload = function () {
+              if (callback) callback();
+            };
+            document.body.appendChild(script);
+          }
+       
+          if (isScriptExist && callback) callback();
         }
-    }
+       
+        // load the script by passing the URL
+        loadScriptByURL("recaptcha-key", 
+        `https://www.google.com/recaptcha/api.js?render=${SITE_KEY}`,
+         function () {
+            console.log("Script loaded!");
+        });
 
-    const handleSubmit = () => {
-        //send email
-        //success message
-    }
+    }, []);
+    
 
+    if (loading) {
+        return (
+            <div className='message-container' style={backgroundImage}>
+                <h1 id='success'>Loading...</h1>
+            </div>
+        )
+    }
+    if (response.response) {
+        return(
+            <div className='message-container' style={backgroundImage}>
+                <h1 id='success'>Message Sent</h1>;
+            </div>
+        )     
+    }
     return(
         <div className='register-container' style={backgroundImage}>
             <article>
                 <main>     
-                    <div className={'form-container'}>
-                        <span>{error}</span>
+                    <form className={'form-container'} onSubmit={handleSubmit(onSubmit)}>
                         <label htmlFor='name'><b>Name:</b></label>
-                        <input 
-                            type='name' 
-                            name='name' 
-                            id='name'
-                            placeholder='Full Name'
-                            onChange={onNameChange}
-                            required/><br/>
+                        <input {...register('name', { required: true, pattern: regxName})} />
+                        {errors.name && errors.name.type ==='pattern' && <p id='error'>Name must be more than 2 characters long</p>}
+                        {errors.name && errors.name.type ==='required' && <p id='error'>This field is required</p>}
+                        <br/>
 
                         <label htmlFor='email'><b>Email:</b></label>
-                        <input 
-                            type='email' 
-                            name='email' 
-                            id='email'
-                            placeholder='email@someplace.com'
-                            onChange={onEmailChange}
-                            required/><br/>
+                        <input {...register('email', { required: true, pattern: regxEmail})} />
+                        {errors.email && errors.email.type === 'required' && <p id='error'>This field is required</p>}
+                        {errors.email && errors.email.type === 'pattern' && <p id='error'>Not a valid email</p>}
+                        <br/>    
+
                         <label htmlFor='phone'><b>Phone Number:</b></label>
+                        <input {...register('phone', { required: true, pattern: regxPhone})} />
+                        {errors.phone && errors.phone.type === 'pattern' && <p id='error'>Phone number must contain hyphens. Ex: 111-222-3333</p>}
+                        {errors.phone && errors.phone.type === 'required' && <p id='error'>This Field is required</p>}
+                        <br/>
 
-                        <input 
-                            type='phone' 
-                            name='phone' 
-                            id='phone'
-                            placeholder='111-222-3333'
-                            onChange={onPhoneChange}
-                            required/><br/>
                         <label htmlFor='subject'><b>Subject:</b></label>
-
-                        <select id='subject' name='subject'>
+                        <select {...register('subject', { required: true})}>
                             <option value='Lesson Registration'>Lesson Registration</option>
                             <option value='Lesson Information'>Lesson Information</option>
                         </select><br/>
                         
                         <label htmlFor='message'><b>Message:</b></label>
-                        <textarea
-                            type='message'
-                            name='message'
-                            placeholder='Type message here.'
-                            style={{height:'200px'}}
-                        />
-                        <input
+                        <textarea {...register('message', { required: true, minLength: 10})} style={{height:'200px'}}/>
+                        {errors.message && errors.message.type === 'minLength' && <p id='error'>Must be 10 Characters or more to ba valid</p>}
+                        {errors.message && errors.message.type === 'required' && <p id='error'>This field is required</p>}
+               
+                        <button
                             type='submit' 
                             name='submit' 
                             id='submit'
-                            onClick={handleSubmit}
-                        />
-                    </div>    
+                        >Send Message</button>
+                    </form>    
                 </main>
             </article>
         </div>

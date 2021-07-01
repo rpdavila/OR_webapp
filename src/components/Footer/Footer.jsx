@@ -1,6 +1,6 @@
 import React from 'react';
 import './Footer.css'
-// import Facebook from '../images/SocialMedia/f_logo_RGB-Blue_58.png'
+import Facebook from '../images/SocialMedia/f_logo_RGB-Blue_58.png'
 // import instagram from '../images/SocialMedia/Instagram_Glyph_Gradient_RGB.png'
 import u_tube from '../images/SocialMedia/youtube_social_squircle_red.png'
 import linked_in from "../images/SocialMedia/linkedin.png"
@@ -10,7 +10,9 @@ const Footer = () => {
     return (
         <div className={`footer`}>
             <div className={'sm-container'}>
-                {/*<img className={'f-social'} src={Facebook} alt={'facebook'}/>*/}
+                <a href={'https://www.facebook.com/profile.php?id=100069268163237'}>
+                    <img className={'f-social'} src={Facebook} alt={'facebook'}/>
+                </a> 
                 {/*<img className={'insta-social'} src={instagram} alt={'instagram'}/>*/}
                 <a href={'https://www.youtube.com/channel/UCDzcynEIOQYCQJFJekmAASQ'}>
                     <img className={'u-tube-social'} src={u_tube} alt={'youtube'}/> 

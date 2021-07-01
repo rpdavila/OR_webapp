@@ -20,10 +20,7 @@ function App() {
           <Route path={'/contact'}>
             <Contact />
           </Route>
-          <Route path={'/store'}>
-            <Lessons />
-          </Route>
-          <Route path={'/pm'}>
+          <Route path={'/services'}>
             <Services />
           </Route>
           <Route path={'/about'}>
@@ -32,15 +29,6 @@ function App() {
           <Route path={'/lessons'}>
             <Lessons />
           </Route>
-          {/* <Route path={'/signin'}>
-            <Signin />
-          </Route>
-          <Route path={'/cart'}>
-            <ShoppingCart />
-          </Route>
-          <Route path={'/register'}>
-            <Register />
-          </Route> */}
           <Route path={'/'}>
             <Home />
           </Route>
