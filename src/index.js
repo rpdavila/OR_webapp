@@ -9,8 +9,14 @@ import { createStore, applyMiddleware, combineReducers } from 'redux';
 import thunk from 'redux-thunk';
 import logger from 'redux-logger';
 
+let middleware = []
+if (process.env.NODE_ENV !== 'production') {
+  middleware = [thunk, logger ];
+}else {
+  middleware = [thunk];
+}
 const rootReducer = combineReducers({ isSignedIn, hasError, isUser, updateCart });
-const store = createStore(rootReducer, applyMiddleware(thunk, logger));
+const store = createStore(rootReducer, applyMiddleware(...middleware));
 
 ReactDOM.render(
   <Provider store={store}>
