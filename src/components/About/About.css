@@ -14,7 +14,7 @@
     width: 550px;
     height: auto;
     border-radius: 20px;
-    filter: grayscale(100%);
+    filter: grayscale(100%) brightness(68%);
 }
 
 /*text*/
