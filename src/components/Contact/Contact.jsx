@@ -32,7 +32,7 @@ const Contact = () => {
 
     const submitData = (data, token) => {
         // call a backend API to verify reCAPTCHA response
-        fetch('http://localhost:3000/verify', {
+        fetch('https://iqils27xok.execute-api.us-east-1.amazonaws.com/staging', {
           method: 'POST',
           headers: {
             "Content-Type": "application/json"
