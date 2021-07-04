@@ -31,7 +31,7 @@ app.use(function(req, res, next) {
 
 app.post('/contact', function(req, res) {
   const { name, email, subject, phone, message, token } = req.body
-  const secret_key = process.env.SERCRET_KEY
+  const secret_key = process.env.SECRET_KEY
   fetch(`https://www.google.com/recaptcha/api/siteverify?secret=${secret_key}&response=${token}`, {
       method: 'post'
   })

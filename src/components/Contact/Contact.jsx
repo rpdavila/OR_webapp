@@ -32,7 +32,7 @@ const Contact = () => {
 
     const submitData = (data, token) => {
         // call a backend API to verify reCAPTCHA response
-        fetch('https://iqils27xok.execute-api.us-east-1.amazonaws.com/staging', {
+        fetch('https://iqils27xok.execute-api.us-east-1.amazonaws.com/staging/contact', {
           method: 'POST',
           headers: {
             "Content-Type": "application/json"
@@ -100,7 +100,7 @@ const Contact = () => {
         <div className='register-container' style={backgroundImage}>
             <article>
                 <main>     
-                    <form className={'form-container'} onSubmit={handleSubmit(onSubmit)}>
+                    <form className={'form-container'} onSubmit={handleSubmit(onSubmit)} >
                         <label htmlFor='name'><b>Name:</b></label>
                         <input {...register('name', { required: true, pattern: regxName})} />
                         {errors.name && errors.name.type ==='pattern' && <p id='error'>Name must be more than 2 characters long</p>}
