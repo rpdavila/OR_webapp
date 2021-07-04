@@ -359,7 +359,7 @@
         
         
 
-      "DeploymentAPIGWcontact": {
+      "DeploymentAPIGWcontacta2b86939": {
         "Type": "AWS::ApiGateway::Deployment",
         "Properties": {
           "Description": "The Development stage deployment of your API.",
