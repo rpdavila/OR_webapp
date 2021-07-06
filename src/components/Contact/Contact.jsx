@@ -24,7 +24,7 @@ const Contact = () => {
         e.preventDefault();
         setLoading(true);
         window.grecaptcha.ready(function() {
-            window.grecaptcha.execute(process.env.GRECAPTCHA, {action: 'submit'}).then(function(token) {
+            window.grecaptcha.execute(SITE_KEY, {action: 'submit'}).then(function(token) {
             submitData(data,token); 
             });
         });
@@ -74,7 +74,7 @@ const Contact = () => {
        
         // load the script by passing the URL
         loadScriptByURL("recaptcha-key", 
-        `https://www.google.com/recaptcha/api.js?render=${process.env.GRECAPTCHA}`,
+        `https://www.google.com/recaptcha/api.js?render=${SITE_KEY}`,
          function () {
             console.log("Script loaded!");
         });
