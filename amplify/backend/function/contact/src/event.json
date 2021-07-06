@@ -1,7 +1,5 @@
 {
-  "name": "John Johny",
-  "email": "John@gmail.com",
-  "subject": "value3",
-  "phone": "123-456-7890",
-  "message": "Send info on lessons test"
+  "key1": "value1",
+  "key2": "value2",
+  "key3": "value3"
 }

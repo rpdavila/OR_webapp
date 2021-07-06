@@ -16,9 +16,6 @@
     "s3Key": {
       "Type": "String"
     },
-    "siteKey": {
-      "Type": "String"
-    },
     "secretKey": {
       "Type": "String"
     },
@@ -94,9 +91,6 @@
             "REGION": {
               "Ref": "AWS::Region"
             },
-            "SITE_KEY": {
-              "Ref": "siteKey"
-            },
             "SECRET_KEY": {
               "Ref": "secretKey"
             },
@@ -137,12 +131,12 @@
         "RoleName": {
           "Fn::If": [
             "ShouldNotCreateEnvResources",
-            "orwebappLambdaRole9c5f881e",
+            "orwebappLambdaRoled7af9858",
             {
               "Fn::Join": [
                 "",
                 [
-                  "orwebappLambdaRole9c5f881e",
+                  "orwebappLambdaRoled7af9858",
                   "-",
                   {
                     "Ref": "env"

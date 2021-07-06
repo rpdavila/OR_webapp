@@ -1,6 +1,14 @@
 {
     "paths": [
         {
+            "name": "/",
+            "lambdaFunction": "contact",
+            "privacy": {
+                "open": true
+            },
+            "policyResourceName": "/"
+        },
+        {
             "name": "/contact",
             "lambdaFunction": "contact",
             "privacy": {
@@ -32,5 +40,5 @@
             ]
         }
     ],
-    "uuid": "8aced4f9"
+    "uuid": "71c0506b"
 }

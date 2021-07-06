@@ -2,10 +2,6 @@
   "lambdaLayers": [],
   "environmentVariableList": [
     {
-      "cloudFormationParameterName": "siteKey",
-      "environmentVariableName": "SITE_KEY"
-    },
-    {
       "cloudFormationParameterName": "secretKey",
       "environmentVariableName": "SECRET_KEY"
     },

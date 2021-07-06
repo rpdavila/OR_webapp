@@ -9,16 +9,14 @@ See the License for the specific language governing permissions and limitations 
 
 
 
-const express = require('express')
-const awsServerlessExpressMiddleware = require('aws-serverless-express/middleware')
-const nodemailer = require('nodemailer')
-const { google } = require('googleapis')
+var express = require('express')
+const nodemailer = require('nodemailer');
+const { google } = require('googleapis');
 const OAuth2 = google.auth.OAuth2;
-const fetch = require('isomorphic-fetch')
-
+var awsServerlessExpressMiddleware = require('aws-serverless-express/middleware')
 
 // declare a new express app
-const app = express()
+var app = express()
 app.use(express.json())
 app.use(awsServerlessExpressMiddleware.eventContext())
 
@@ -28,6 +26,19 @@ app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Headers", "*")
   next()
 });
+
+
+/**********************
+ * Example get method *
+ **********************/
+
+ app.get('/', (req, res) => {
+  res.send('It\'s Working')
+})
+
+/****************************
+* Example post method *
+****************************/
 
 app.post('/contact', function(req, res) {
   const { name, email, subject, phone, message, token } = req.body
@@ -57,7 +68,7 @@ app.post('/contact', function(req, res) {
                   user: process.env.USER_EMAIL1,
                   clientId: process.env.CLIENT_ID,
                   clientSecret: process.env.CLIENT_SECRET,
-                  refreshToken: process.env.REFRESHH_TOKEN,
+                  refreshToken: process.env.REFRESH_TOKEN,
                   accessToken: accessToken
               }
           });
@@ -85,6 +96,18 @@ app.post('/contact', function(req, res) {
   .catch(err => res.json({err}))
   res.json({success: 'post call succeed!', url: req.url, body: req.body})
 });
+
+
+
+/****************************
+* Example put method *
+****************************/
+
+
+/****************************
+* Example delete method *
+****************************/
+
 
 app.listen(3000, function() {
     console.log("App started")
