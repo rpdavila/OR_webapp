@@ -24,6 +24,23 @@
           "userEmail2": "dr.oruiztrumpet@gmail.com",
           "deploymentBucketName": "amplify-amplify1c2ab4b7e24b4-staging-190325-deployment",
           "s3Key": "amplify-builds/contact-7258756b63426732717a-build.zip"
+        },
+        "orwebapp8077ce7bDefineAuthChallenge": {
+          "deploymentBucketName": "amplify-amplify1c2ab4b7e24b4-staging-190325-deployment",
+          "s3Key": "amplify-builds/orwebapp8077ce7bDefineAuthChallenge-6c787164413961614749-build.zip"
+        },
+        "orwebapp8077ce7bCreateAuthChallenge": {
+          "deploymentBucketName": "amplify-amplify1c2ab4b7e24b4-staging-190325-deployment",
+          "s3Key": "amplify-builds/orwebapp8077ce7bCreateAuthChallenge-36646562442f34347779-build.zip"
+        },
+        "orwebapp8077ce7bVerifyAuthChallengeResponse": {
+          "RECAPTCHASECRET": "6LeEDVQbAAAAAG7FgzdEavz_QUogH4TB2u22x2Qj",
+          "deploymentBucketName": "amplify-amplify1c2ab4b7e24b4-staging-190325-deployment",
+          "s3Key": "amplify-builds/orwebapp8077ce7bVerifyAuthChallengeResponse-6d5657744a796377354d-build.zip"
+        },
+        "AdminQueriese188ba30": {
+          "deploymentBucketName": "amplify-amplify1c2ab4b7e24b4-staging-190325-deployment",
+          "s3Key": "amplify-builds/AdminQueriese188ba30-6b6b57783956536c6c41-build.zip"
         }
       },
       "auth": {
