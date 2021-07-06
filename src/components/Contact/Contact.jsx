@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import Image from "../images/Paint.jpg"
 import './contact.css';
 
-
+const SITE_KEY = process.env.GRECAPTCHA;
 
 const backgroundImage = {
     backgroundImage: `linear-gradient(
@@ -24,7 +24,7 @@ const Contact = () => {
         e.preventDefault();
         setLoading(true);
         window.grecaptcha.ready(function() {
-            window.grecaptcha.execute(process.env.SITE_KEY, {action: 'submit'}).then(function(token) {
+            window.grecaptcha.execute(process.env.GRECAPTCHA, {action: 'submit'}).then(function(token) {
             submitData(data,token); 
             });
         });
@@ -74,7 +74,7 @@ const Contact = () => {
        
         // load the script by passing the URL
         loadScriptByURL("recaptcha-key", 
-        `https://www.google.com/recaptcha/api.js?render=${process.env.SITE_KEY}`,
+        `https://www.google.com/recaptcha/api.js?render=${process.env.GRECAPTCHA}`,
          function () {
             console.log("Script loaded!");
         });
