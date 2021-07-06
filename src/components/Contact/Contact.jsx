@@ -74,7 +74,7 @@ const Contact = () => {
        
         // load the script by passing the URL
         loadScriptByURL("recaptcha-key", 
-        `https://www.google.com/recaptcha/api.js?render=${SITE_KEY}`,
+        `https://www.google.com/recaptcha/api.js?render=${process.env.SITE_KEY}`,
          function () {
             console.log("Script loaded!");
         });
