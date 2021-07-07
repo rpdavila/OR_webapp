@@ -42,3 +42,12 @@
     width: 29px;
     height: auto;
 }
+
+#link {
+    text-decoration: none;
+    color: whitesmoke;
+}
+
+hr {
+    width: 250px;
+}

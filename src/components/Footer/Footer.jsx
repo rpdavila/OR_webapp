@@ -1,5 +1,6 @@
 import React from 'react';
-import './Footer.css'
+import { Link } from 'react-router-dom';
+import './Footer.css';
 import Facebook from '../images/SocialMedia/f_logo_RGB-Blue_58.png'
 // import instagram from '../images/SocialMedia/Instagram_Glyph_Gradient_RGB.png'
 import u_tube from '../images/SocialMedia/youtube_social_squircle_red.png'
@@ -22,7 +23,9 @@ const Footer = () => {
                 </a>
             </div>
             <div className={'cr-container'}>
-                &copy; Copyright 2021 Dr. Orlando Ruiz
+                &copy; Copyright 2021 Dr. Orlando Ruiz <br/>
+                <hr/>
+                <Link id='link' to='/privacy'>Privacy Policy</Link>
             </div>
             
         </div>

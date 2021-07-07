@@ -6,6 +6,7 @@ import Services from "./components/Services/Services";
 import Footer from "./components/Footer/Footer";
 import Lessons from "./components/Lessons/Lessons";
 import Contact from "./components/Contact/Contact"
+import PrivacyPolicy from './components/PrivacyPolicy/PrivacyPolicy';
 // import Signin from "./components/Siginin/Signin";
 // import Register from './components/Register/Register';
 // import ShoppingCart from './components/ShoppingCart/ShoppingCart';
@@ -17,6 +18,9 @@ function App() {
       <div className="App">
         <NavBar/>
         <Switch>
+          <Route path={'/privacy'}>
+            <PrivacyPolicy />
+          </Route>
           <Route path={'/contact'}>
             <Contact />
           </Route>
