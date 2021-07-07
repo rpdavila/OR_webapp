@@ -1,0 +1,55 @@
+{
+    "paths": [
+        {
+            "name": "/",
+            "lambdaFunction": "serverCheck",
+            "privacy": {
+                "open": true
+            },
+            "policyResourceName": "/"
+        },
+        {
+            "name": "/contact",
+            "lambdaFunction": "contact",
+            "privacy": {
+                "open": true
+            },
+            "policyResourceName": "/contact"
+        }
+    ],
+    "resourceName": "server",
+    "apiName": "server",
+    "functionArns": [
+        {
+            "lambdaFunction": "serverCheck"
+        },
+        {
+            "lambdaFunction": "contact"
+        }
+    ],
+    "privacy": {
+        "auth": 0,
+        "unauth": 0,
+        "authRoleName": "amplify-amplifyeabd6d1220544-staging-32946-authRole",
+        "unAuthRoleName": "amplify-amplifyeabd6d1220544-staging-32946-unauthRole"
+    },
+    "dependsOn": [
+        {
+            "category": "function",
+            "resourceName": "serverCheck",
+            "attributes": [
+                "Name",
+                "Arn"
+            ]
+        },
+        {
+            "category": "function",
+            "resourceName": "contact",
+            "attributes": [
+                "Name",
+                "Arn"
+            ]
+        }
+    ],
+    "uuid": "d1644cc0"
+}
