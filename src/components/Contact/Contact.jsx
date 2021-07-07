@@ -51,13 +51,8 @@ const Contact = () => {
 
         };
 
-        API
-            .post(apiName, path, myInit)
-            .then(res => res.json())
-            .then(res => {
-                setLoading(false);
-                setResponse(res)
-            })
+        API.post(apiName, path, myInit)
+            .then(res => console.log(res))
             .catch(error => {
                 console.log(error.response);
             })
