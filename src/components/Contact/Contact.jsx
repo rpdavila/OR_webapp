@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useForm } from "react-hook-form";
-import { API } from 'aws-amplify';
+
 import Image from "../images/Paint.jpg"
 import './contact.css';
 
@@ -21,6 +21,10 @@ const Contact = () => {
     const regxEmail = /^\S+@\S+$/
     const regxPhone = /^\d{3}-\d{3}-\d{4}$/
 
+
+    
+
+
     // connect to backend server
     const onSubmit = (data, e) => {
         e.preventDefault();
@@ -34,28 +38,25 @@ const Contact = () => {
 
     const submitData = (data, token) => {
         // call a backend API to verify reCAPTCHA response
-        const apiName = 'server';
-        const path = '/contact';
-        const myInit = {
-            body: JSON.stringify({
-                "name": data.name,
-                "email": data.email,
-                "phone": data.phone,
-                "subject": data.subject,
-                "message": data.message,
-                "token": token
-            }),
-            headers: {
-                "Content-Type": "application/json"
-            }
-
-        };
-
-        API.post(apiName, path, myInit)
-            .then(res => console.log(res))
-            .catch(error => {
-                console.log(error.response);
-            })
+        fetch('localhost:3000/contact', {
+          method: 'POST',
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            "name": data.name,
+            "email": data.email,
+            "phone": data.phone,
+            "subject": data.subject,
+            "message": data.message,
+            "token": token
+          })
+        })
+        .then(res => res.json())
+        .then(res => {
+          setLoading(false);
+          setResponse(res)
+        });
     }
 
 
