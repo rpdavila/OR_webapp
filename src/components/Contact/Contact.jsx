@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import Image from "../images/Paint.jpg"
 import './contact.css';
 
-const SITE_KEY = '6LeEDVQbAAAAABnjWZaQEXMmnc-SXo-gDUQwdTEN';
+const SITE_KEY = process.env.GRECAPTCHA;
 
 const backgroundImage = {
     backgroundImage: `linear-gradient(
