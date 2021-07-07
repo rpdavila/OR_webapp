@@ -20,6 +20,7 @@ const Contact = () => {
     const regxEmail = /^\S+@\S+$/
     const regxPhone = /^\d{3}-\d{3}-\d{4}$/
 
+    // connect to backend server
     const onSubmit = (data, e) => {
         e.preventDefault();
         setLoading(true);
