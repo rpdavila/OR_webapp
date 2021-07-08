@@ -11,10 +11,6 @@ import PrivacyPolicy from './components/PrivacyPolicy/PrivacyPolicy';
 // import Register from './components/Register/Register';
 // import ShoppingCart from './components/ShoppingCart/ShoppingCart';
 import './App.css';
-import Amplify from 'aws-amplify';
-import awsconfig from './aws-exports';
-
-Amplify.configure(awsconfig);
 
 function App() {
   return (
