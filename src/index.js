@@ -8,6 +8,10 @@ import { isSignedIn, hasError, isUser, updateCart } from './Redux/reducers';
 import { createStore, applyMiddleware, combineReducers } from 'redux';
 import thunk from 'redux-thunk';
 import logger from 'redux-logger';
+import Amplify from "aws-amplify";
+import awsExports from "./aws-exports";
+
+Amplify.configure(awsExports);
 
 let middleware = []
 if (process.env.NODE_ENV !== 'production') {
