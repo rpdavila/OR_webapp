@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useForm } from "react-hook-form";
-
+import { API } from 'aws-amplify'
+import { createCandidate } from '../../graphql/mutations'
 import Image from "../images/Paint.jpg"
 import './contact.css';
 
@@ -21,71 +22,87 @@ const Contact = () => {
     const regxEmail = /^\S+@\S+$/
     const regxPhone = /^\d{3}-\d{3}-\d{4}$/
 
-
+    //connect to AWS Serverless on SUbmit
+    const onSubmit = async data => {
+        console.log(data.name)
+        await API.graphql({
+            query: createCandidate,
+            variables: {
+                input: {
+                   name: data.name,
+                   email: data.email,
+                   phone: data.phone,
+                   subject: data.subject,
+                   message: data.message 
+                },
+            },
+        })
+        .then(res => setResponse(res));
+    }
     
 
 
     // connect to backend server
-    const onSubmit = (data, e) => {
-        e.preventDefault();
-        setLoading(true);
-        window.grecaptcha.ready(function() {
-            window.grecaptcha.execute(SITE_KEY, {action: 'submit'}).then(function(token) {
-            submitData(data,token); 
-            });
-        });
-    }
+    // const onSubmit = (data, e) => {
+    //     e.preventDefault();
+    //     setLoading(true);
+    //     window.grecaptcha.ready(function() {
+    //         window.grecaptcha.execute(SITE_KEY, {action: 'submit'}).then(function(token) {
+    //         submitData(data,token); 
+    //         });
+    //     });
+    // }
 
-    const submitData = (data, token) => {
-        // call a backend API to verify reCAPTCHA response
-        fetch('localhost:3000/contact', {
-          method: 'POST',
-          headers: {
-            "Content-Type": "application/json"
-          },
-          body: JSON.stringify({
-            "name": data.name,
-            "email": data.email,
-            "phone": data.phone,
-            "subject": data.subject,
-            "message": data.message,
-            "token": token
-          })
-        })
-        .then(res => res.json())
-        .then(res => {
-          setLoading(false);
-          setResponse(res)
-        });
-    }
+    // const submitData = (data, token) => {
+    //     // call a backend API to verify reCAPTCHA response
+    //     fetch('localhost:3000/contact', {
+    //       method: 'POST',
+    //       headers: {
+    //         "Content-Type": "application/json"
+    //       },
+    //       body: JSON.stringify({
+    //         "name": data.name,
+    //         "email": data.email,
+    //         "phone": data.phone,
+    //         "subject": data.subject,
+    //         "message": data.message,
+    //         "token": token
+    //       })
+    //     })
+    //     .then(res => res.json())
+    //     .then(res => {
+    //       setLoading(false);
+    //       setResponse(res)
+    //     });
+    // }
 
 
-    useEffect(() => {
-        const loadScriptByURL = (id, url, callback) => {
-          const isScriptExist = document.getElementById(id);
+    // useEffect(() => {
+    //     const loadScriptByURL = (id, url, callback) => {
+    //       const isScriptExist = document.getElementById(id);
        
-          if (!isScriptExist) {
-            var script = document.createElement("script");
-            script.type = "text/javascript";
-            script.src = url;
-            script.id = id;
-            script.onload = function () {
-              if (callback) callback();
-            };
-            document.body.appendChild(script);
-          }
+    //       if (!isScriptExist) {
+    //         var script = document.createElement("script");
+    //         script.type = "text/javascript";
+    //         script.src = url;
+    //         script.id = id;
+    //         script.onload = function () {
+    //           if (callback) callback();
+    //         };
+    //         document.body.appendChild(script);
+    //       }
        
-          if (isScriptExist && callback) callback();
-        }
+    //       if (isScriptExist && callback) callback();
+    //     }
        
-        // load the script by passing the URL
-        loadScriptByURL("recaptcha-key", 
-        `https://www.google.com/recaptcha/api.js?render=${SITE_KEY}`,
-         function () {
-            console.log("Script loaded!");
-        });
+    //     // load the script by passing the URL
+    //     loadScriptByURL("recaptcha-key", 
+    //     `https://www.google.com/recaptcha/api.js?render=${SITE_KEY}`,
+    //      function () {
+    //         console.log("Script loaded!");
+    //     });
 
-    }, []);
+    // }, []);
     
 
     if (loading) {
@@ -95,7 +112,7 @@ const Contact = () => {
             </div>
         )
     }
-    if (response.response) {
+    if (loading === false) {
         return(
             <div className='message-container' style={backgroundImage}>
                 <h1 id='success'>Message Sent</h1>;
