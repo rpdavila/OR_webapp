@@ -5,8 +5,6 @@ import { createCandidate } from '../../graphql/mutations'
 import Image from "../images/Paint.jpg"
 import './contact.css';
 
-const SITE_KEY = process.env.GRECAPTCHA;
-
 const backgroundImage = {
     backgroundImage: `linear-gradient(
         rgba(0, 0, 0, 0.3),
@@ -40,71 +38,6 @@ const Contact = () => {
         .then(res => setResponse(res));
     }
     
-
-
-    // connect to backend server
-    // const onSubmit = (data, e) => {
-    //     e.preventDefault();
-    //     setLoading(true);
-    //     window.grecaptcha.ready(function() {
-    //         window.grecaptcha.execute(SITE_KEY, {action: 'submit'}).then(function(token) {
-    //         submitData(data,token); 
-    //         });
-    //     });
-    // }
-
-    // const submitData = (data, token) => {
-    //     // call a backend API to verify reCAPTCHA response
-    //     fetch('localhost:3000/contact', {
-    //       method: 'POST',
-    //       headers: {
-    //         "Content-Type": "application/json"
-    //       },
-    //       body: JSON.stringify({
-    //         "name": data.name,
-    //         "email": data.email,
-    //         "phone": data.phone,
-    //         "subject": data.subject,
-    //         "message": data.message,
-    //         "token": token
-    //       })
-    //     })
-    //     .then(res => res.json())
-    //     .then(res => {
-    //       setLoading(false);
-    //       setResponse(res)
-    //     });
-    // }
-
-
-    // useEffect(() => {
-    //     const loadScriptByURL = (id, url, callback) => {
-    //       const isScriptExist = document.getElementById(id);
-       
-    //       if (!isScriptExist) {
-    //         var script = document.createElement("script");
-    //         script.type = "text/javascript";
-    //         script.src = url;
-    //         script.id = id;
-    //         script.onload = function () {
-    //           if (callback) callback();
-    //         };
-    //         document.body.appendChild(script);
-    //       }
-       
-    //       if (isScriptExist && callback) callback();
-    //     }
-       
-    //     // load the script by passing the URL
-    //     loadScriptByURL("recaptcha-key", 
-    //     `https://www.google.com/recaptcha/api.js?render=${SITE_KEY}`,
-    //      function () {
-    //         console.log("Script loaded!");
-    //     });
-
-    // }, []);
-    
-
     if (loading) {
         return (
             <div className='message-container' style={backgroundImage}>
@@ -112,7 +45,7 @@ const Contact = () => {
             </div>
         )
     }
-    if (loading === false) {
+    if (response.data) {
         return(
             <div className='message-container' style={backgroundImage}>
                 <h1 id='success'>Message Sent</h1>;

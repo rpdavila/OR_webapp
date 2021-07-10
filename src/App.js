@@ -10,7 +10,7 @@ import PrivacyPolicy from './components/PrivacyPolicy/PrivacyPolicy';
 // import Signin from "./components/Siginin/Signin";
 // import Register from './components/Register/Register';
 // import ShoppingCart from './components/ShoppingCart/ShoppingCart';
-import Amplify from '@aws-amplify/ui-react'
+import Amplify from '@aws-amplify/core'
 import config from '../src/aws-exports'
 import './App.css';
 
