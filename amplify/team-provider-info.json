@@ -1,24 +1,15 @@
 {
-  "dev": {
+  "staging": {
     "awscloudformation": {
-      "AuthRoleName": "amplify-orbackend-dev-165727-authRole",
-      "UnauthRoleArn": "arn:aws:iam::360204882659:role/amplify-orbackend-dev-165727-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::360204882659:role/amplify-orbackend-dev-165727-authRole",
+      "AuthRoleName": "amplify-amplifya35cb549ebdb4-staging-11037-authRole",
+      "UnauthRoleArn": "arn:aws:iam::360204882659:role/amplify-amplifya35cb549ebdb4-staging-11037-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::360204882659:role/amplify-amplifya35cb549ebdb4-staging-11037-authRole",
       "Region": "us-east-1",
-      "DeploymentBucketName": "amplify-orbackend-dev-165727-deployment",
-      "UnauthRoleName": "amplify-orbackend-dev-165727-unauthRole",
-      "StackName": "amplify-orbackend-dev-165727",
-      "StackId": "arn:aws:cloudformation:us-east-1:360204882659:stack/amplify-orbackend-dev-165727/45c06500-e0f8-11eb-87d5-12ab4fab6419",
-      "AmplifyAppId": "d7uz1zutvqle2"
-    },
-    "categories": {
-      "function": {
-        "contactFormUploader": {
-          "deploymentBucketName": "amplify-orbackend-dev-165727-deployment",
-          "s3Key": "amplify-builds/contactFormUploader-4d4b5a70684a7970506e-build.zip",
-          "sesEmail": "rafael.pietri@gmail.com"
-        }
-      }
+      "DeploymentBucketName": "amplify-amplifya35cb549ebdb4-staging-11037-deployment",
+      "UnauthRoleName": "amplify-amplifya35cb549ebdb4-staging-11037-unauthRole",
+      "StackName": "amplify-amplifya35cb549ebdb4-staging-11037",
+      "StackId": "arn:aws:cloudformation:us-east-1:360204882659:stack/amplify-amplifya35cb549ebdb4-staging-11037/cd26d780-e1e4-11eb-b403-12d55a58e4d7",
+      "AmplifyAppId": "dbk8wdldq2b0v"
     }
   }
 }
