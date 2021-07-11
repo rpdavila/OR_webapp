@@ -14,9 +14,9 @@
     "categories": {
       "function": {
         "contactFormUploader": {
-          "sesEmail": "rafael.pietri@gmail.com",
           "deploymentBucketName": "amplify-orbackend-dev-165727-deployment",
-          "s3Key": "amplify-builds/contactFormUploader-3758716c66524a376d48-build.zip"
+          "s3Key": "amplify-builds/contactFormUploader-4d4b5a70684a7970506e-build.zip",
+          "sesEmail": "rafael.pietri@gmail.com"
         }
       }
     }

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useForm } from "react-hook-form";
 import { API } from 'aws-amplify'
 import { createCandidate } from '../../graphql/mutations'
@@ -22,7 +22,7 @@ const Contact = () => {
 
     //connect to AWS Serverless on SUbmit
     const onSubmit = async data => {
-        console.log(data.name)
+        setLoading(true);
         await API.graphql({
             query: createCandidate,
             variables: {
@@ -36,8 +36,9 @@ const Contact = () => {
             },
         })
         .then(res => setResponse(res));
+        setLoading(false)
     }
-    
+    console.log(response);
     if (loading) {
         return (
             <div className='message-container' style={backgroundImage}>
