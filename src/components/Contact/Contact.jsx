@@ -20,7 +20,7 @@ const Contact = () => {
     const regxEmail = /^\S+@\S+$/
     const regxPhone = /^\d{3}-\d{3}-\d{4}$/
 
-    //connect to AWS Serverless on SUbmit
+    //connect to AWS Serverless on Submit
     const onSubmit = async data => {
         setLoading(true);
         await API.graphql({
@@ -34,19 +34,18 @@ const Contact = () => {
                    message: data.message 
                 },
             },
-        })
-        .then(res => setResponse(res));
-        setLoading(false)
-    }
-    console.log(response);
+        });
+        setLoading(false); 
+    };
+
     if (loading) {
         return (
             <div className='message-container' style={backgroundImage}>
-                <h1 id='success'>Loading...</h1>
+                <h1 id='success'>Sending Message...</h1>
             </div>
         )
     }
-    if (response.data) {
+    if (loading === false) {
         return(
             <div className='message-container' style={backgroundImage}>
                 <h1 id='success'>Message Sent</h1>;
