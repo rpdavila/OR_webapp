@@ -15,7 +15,7 @@ const backgroundImage = {
 const Contact = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const [loading, setLoading] = useState(null);
-    const [response, setResponse] = useState({});
+    // const [response, setResponse] = useState({});
     const regxName = /^[a-z ,.'-]{2,}$/i
     const regxEmail = /^\S+@\S+$/
     const regxPhone = /^\d{3}-\d{3}-\d{4}$/
