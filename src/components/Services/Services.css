@@ -2,7 +2,7 @@
     width: 100%;
     height: auto;
     display: flex;
-    flex-flow: column;
+    flex-flow: wrap;
     justify-content: center;
 }
 
@@ -19,20 +19,17 @@
     height: auto;
     display: grid;
     justify-content: center;
-    grid-template-columns: repeat(2, 550px);
-    grid-auto-flow: column;
-    grid-gap: 50px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-gap: 10px;
+    grid-auto-flow: row;
     color: whitesmoke;
     margin-bottom: 30px;
     text-shadow: 3px 2px 2px #000000;
 }
 
 .english-pedagogy {
-    margin-top: 50px;
-    padding: 20px;
-    width:500px;
-    height: 400px;
-    overflow: auto;
+    width: 100%;
+    height: auto;
     color: whitesmoke;
     /* background-color: black; */
     box-shadow: 0 1px 1px rgba(0,0,0,0.11),
@@ -50,11 +47,9 @@
 }
 
 .trumpet-pedagogy {
-    margin-top: 50px;
-    padding: 20px;
-    width: 500px;
-    height: 400px;
-    overflow: auto;
+    align-content: flex-start;
+    width: 100%;
+    height: auto;
     color: whitesmoke;
     box-shadow: 0 1px 1px rgba(0,0,0,0.11),
               0 2px 2px rgba(0,0,0,0.11),
