@@ -180,7 +180,7 @@
                 "ses:SendEmail"
               ],
               "Effect": "Allow",
-              "Resource": "arn:aws:ses:us-east-1:360204882659:identity/rafael.pietri@gmail.com"
+              "Resource": "arn:aws:ses:us-east-1:360204882659:identity/dr.oruiztrumpet@gmail.com"
             }
           ]
         }

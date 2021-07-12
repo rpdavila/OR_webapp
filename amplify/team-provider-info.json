@@ -14,9 +14,9 @@
     "categories": {
       "function": {
         "contactformuploader": {
-          "sesEmail": "rafael.pietri@gmail.com",
           "deploymentBucketName": "amplify-amplifya35cb549ebdb4-staging-11037-deployment",
-          "s3Key": "amplify-builds/contactformuploader-6661684f35734751704a-build.zip"
+          "s3Key": "amplify-builds/contactformuploader-6661684f35734751704a-build.zip",
+          "sesEmail": "dr.oruiztrumpet@gmail.com"
         }
       }
     }
