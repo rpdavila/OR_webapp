@@ -24,7 +24,7 @@ input[name=email], input[name=phone], input[name=name], select, textarea {
 }
 
 
-button{
+.button-submit {
     margin-top: 20px;
     width: 150px;
     padding: 10px;
@@ -32,7 +32,7 @@ button{
     border: none;
 }
 
-button:hover {
+.button-submit:hover {
     background-color: black;
     color: whitesmoke;
     cursor: pointer;

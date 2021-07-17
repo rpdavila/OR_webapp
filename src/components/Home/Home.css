@@ -1,53 +1,48 @@
 .container {
     width: 100%;
     margin-top: 20px;
-    display: grid;
+    display: flex;
     grid-auto-flow: row;
     justify-content: center;
 }
-.title {
-    color: black;
-    width: 400px;
-    height: auto;
-    justify-self: center;
-}
 
-.title > h1 {
+.sm-container-home > h1 {
     margin: 0;
     justify-content: center;
     text-align: center;
     text-decoration: underline;
 }
 
-.title > p {
+.sm-container-home > p {
     margin-top: 0;
     text-align: center;
-    font-size: 2rem;
+    font-size: 1.7rem;
     color: whitesmoke;
     text-shadow: 5px 2px 2px #000000;
 }
 
 .photo {
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     align-items: center;
-    border-radius: 20px;
     margin: 50px;
-    width: 700px;
-    height: 925px;
-    padding: 0;
-    box-shadow: rgba(60, 64, 67, 0.3) 0 1px 2px 0, rgba(60, 64, 67, 0.15) 0 1px 3px 1px;
-    background-size: 700px, auto;
+    width: 100%;
+    height: calc(.887 * 100vh);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .sm-container-home {
-    height: auto;
-    width: auto;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    height: auto;
+    width: 50%;
     justify-content: center;
-    justify-self: center;
-    margin-bottom: 200px;
+}
+
+.sm-container {
+    margin: 0;
 }
 
 .f-social {
@@ -72,4 +67,38 @@
     padding: 11px;
     width: 29px;
     height: auto;
+}
+
+/* responsiv design */
+@media only screen and (max-width: 1200px){
+    /*Tablets [601px -> 1200px]*/
+    .sm-container-home > p {
+        margin-top: 0;
+        text-align: center;
+        font-size: 3rem;
+        color: whitesmoke;
+        text-shadow: 5px 2px 2px #000000;
+    }
+}
+
+@media only screen and (max-width: 650) {
+    /*Big smartphones [426px -> 600px]*/
+    .sm-container-home > p {
+        margin-top: 0;
+        text-align: center;
+        font-size: .5rem;
+        color: whitesmoke;
+        text-shadow: 5px 2px 2px #000000;
+    }
+}
+
+@media only screen and (max-width: 425px){
+	/*Small smartphones [325px -> 425px]*/
+    .sm-container-home > p {
+        margin-top: 0;
+        text-align: center;
+        font-size: .7rem;
+        color: whitesmoke;
+        text-shadow: 5px 2px 2px #000000;
+    }
 }

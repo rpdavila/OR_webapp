@@ -86,7 +86,7 @@ const Contact = () => {
                         {errors.message && errors.message.type === 'minLength' && <p id='error'>Must be 10 Characters or more to ba valid</p>}
                         {errors.message && errors.message.type === 'required' && <p id='error'>This field is required</p>}
                
-                        <button
+                        <button className='button-submit'
                             type='submit' 
                             name='submit' 
                             id='submit'
