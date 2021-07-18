@@ -53,47 +53,43 @@ const Contact = () => {
         )     
     }
     return(
-        <div className='register-container' style={backgroundImage}>
-            <article>
-                <main>     
-                    <form className={'form-container'} onSubmit={handleSubmit(onSubmit)} >
-                        <label htmlFor='name'><b>Name:</b></label>
-                        <input {...register('name', { required: true, pattern: regxName})} />
-                        {errors.name && errors.name.type ==='pattern' && <p id='error'>Name must be more than 2 characters long</p>}
-                        {errors.name && errors.name.type ==='required' && <p id='error'>This field is required</p>}
-                        <br/>
+        <div className='register-container' style={backgroundImage}>  
+            <form className={'form-container'} onSubmit={handleSubmit(onSubmit)} >
+                <label htmlFor='name'><b>Name:</b></label>
+                <input {...register('name', { required: true, pattern: regxName})} />
+                {errors.name && errors.name.type ==='pattern' && <p id='error'>Name must be more than 2 characters long</p>}
+                {errors.name && errors.name.type ==='required' && <p id='error'>This field is required</p>}
+                <br/>
 
-                        <label htmlFor='email'><b>Email:</b></label>
-                        <input {...register('email', { required: true, pattern: regxEmail})} />
-                        {errors.email && errors.email.type === 'required' && <p id='error'>This field is required</p>}
-                        {errors.email && errors.email.type === 'pattern' && <p id='error'>Not a valid email</p>}
-                        <br/>    
+                <label htmlFor='email'><b>Email:</b></label>
+                <input {...register('email', { required: true, pattern: regxEmail})} />
+                {errors.email && errors.email.type === 'required' && <p id='error'>This field is required</p>}
+                {errors.email && errors.email.type === 'pattern' && <p id='error'>Not a valid email</p>}
+                <br/>    
 
-                        <label htmlFor='phone'><b>Phone Number:</b></label>
-                        <input {...register('phone', { required: true, pattern: regxPhone})} />
-                        {errors.phone && errors.phone.type === 'pattern' && <p id='error'>Phone number must contain hyphens. Ex: 111-222-3333</p>}
-                        {errors.phone && errors.phone.type === 'required' && <p id='error'>This Field is required</p>}
-                        <br/>
+                <label htmlFor='phone'><b>Phone Number:</b></label>
+                <input {...register('phone', { required: true, pattern: regxPhone})} />
+                {errors.phone && errors.phone.type === 'pattern' && <p id='error'>Phone number must contain hyphens. Ex: 111-222-3333</p>}
+                {errors.phone && errors.phone.type === 'required' && <p id='error'>This Field is required</p>}
+                <br/>
 
-                        <label htmlFor='subject'><b>Subject:</b></label>
-                        <select {...register('subject', { required: true})}>
-                            <option value='Lesson Registration'>Lesson Registration</option>
-                            <option value='Lesson Information'>Lesson Information</option>
-                        </select><br/>
-                        
-                        <label htmlFor='message'><b>Message:</b></label>
-                        <textarea {...register('message', { required: true, minLength: 10})} style={{height:'200px'}}/>
-                        {errors.message && errors.message.type === 'minLength' && <p id='error'>Must be 10 Characters or more to ba valid</p>}
-                        {errors.message && errors.message.type === 'required' && <p id='error'>This field is required</p>}
-               
-                        <button className='button-submit'
-                            type='submit' 
-                            name='submit' 
-                            id='submit'
-                        >Send Message</button>
-                    </form>    
-                </main>
-            </article>
+                <label htmlFor='subject'><b>Subject:</b></label>
+                <select {...register('subject', { required: true})}>
+                    <option value='Lesson Registration'>Lesson Registration</option>
+                    <option value='Lesson Information'>Lesson Information</option>
+                </select><br/>
+                
+                <label htmlFor='message'><b>Message:</b></label>
+                <textarea {...register('message', { required: true, minLength: 10})} style={{height:'200px'}}/>
+                {errors.message && errors.message.type === 'minLength' && <p id='error'>Must be 10 Characters or more to ba valid</p>}
+                {errors.message && errors.message.type === 'required' && <p id='error'>This field is required</p>}
+        
+                <button className='button-submit'
+                    type='submit' 
+                    name='submit' 
+                    id='submit'
+                >Send Message</button>
+            </form>   
         </div>
     )
 } 

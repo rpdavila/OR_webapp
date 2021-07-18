@@ -4,16 +4,15 @@
     align-items: center;
     color:whitesmoke;
     border-radius: 20px;
-    width: auto;
-    height: 225px;
+    width: 100%;
+    height: 100%;
     transition: ease-out .5s;
-    background-size: 100%;
-    opacity: .5;
-    
+    background-size: 500px 160px;
+    opacity: .5;   
 }
 
 
-.lesson-card > p {
+.lesson-card  p {
     font-size: 1.5rem;
 }
 .lesson-card:hover {

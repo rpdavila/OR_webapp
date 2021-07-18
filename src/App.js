@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import NavBar from "./components/NavBar/NavBar";
 import About from "./components/About/About";
@@ -19,61 +19,58 @@ import Backdrop from './components/Backdrop/Backdrop';
 
 Amplify.configure(config)
 
-class App extends Component {
-
-  state = {
-    sideDrawerOpen: false
-  };
+function App () {
+  const [sideDrawerOpen, setSideDrawerOpen] = useState(false)
+  
   
 
-  drawerToggleClickHandler = () => {
-    this.setState(prevState => {
-      return { sideDrawerOpen: !prevState.sideBarOpen }
+  const drawerToggleClickHandler = () => {
+    setSideDrawerOpen(prevState => {
+      return !prevState.sideDrawerOpen
     });
   };
 
-  backdropClickHandler = () => {
-    this.setState({sideDrawerOpen: false});
-  }
+  const backdropClickHandler = () => {
+    setSideDrawerOpen(false);
+  };
 
-  render() {
-    let backdrop;
+  
+  let backdrop;
 
-    if (this.state.sideDrawerOpen) {
-      backdrop = <Backdrop click={this.backdropClickHandler}/>;
-    }
+  if (sideDrawerOpen) {
+    backdrop = <Backdrop click={backdropClickHandler}/>;
+  };
 
-    return (
-      <Router>
-        <div className="App" style={{height: '100%'}}>
-          <NavBar drawerClickHandler={this.drawerToggleClickHandler}/>
-          <SideDrawer show={this.state.sideDrawerOpen} />
-          {backdrop}
-          <Switch>
-            <Route path={'/privacy'}>
-              <PrivacyPolicy />
-            </Route>
-            <Route path={'/contact'}>
-              <Contact />
-            </Route>
-            <Route path={'/services'}>
-              <Services />
-            </Route>
-            <Route path={'/about'}>
-              <About />
-            </Route>
-            <Route path={'/lessons'}>
-              <Lessons />
-            </Route>
-            <Route path={'/'}>
-              <Home />
-            </Route>
-          </Switch>      
-          <Footer />
-        </div>
-      </Router>
-    );
-  }
+  return (
+    <Router>
+      <div className="App" style={{height: '100%'}}>
+        <NavBar drawerClickHandler={drawerToggleClickHandler}/>
+        <SideDrawer show={sideDrawerOpen} />
+        {backdrop}
+        <Switch>
+          <Route path={'/privacy'}>
+            <PrivacyPolicy />
+          </Route>
+          <Route path={'/contact'}>
+            <Contact />
+          </Route>
+          <Route path={'/services'}>
+            <Services />
+          </Route>
+          <Route path={'/about'}>
+            <About />
+          </Route>
+          <Route path={'/lessons'}>
+            <Lessons />
+          </Route>
+          <Route path={'/'}>
+            <Home />
+          </Route>
+        </Switch>      
+        <Footer />
+      </div>
+    </Router>
+  );
 }
 
 export default App;

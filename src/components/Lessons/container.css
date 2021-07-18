@@ -3,6 +3,7 @@
     height:auto;
     display:flex;
     justify-content: center;
+    flex-wrap: wrap;
     flex-flow: column;
 }
 
@@ -18,7 +19,6 @@
 
 .main-container {
     display:flex;
-    flex-direction: row;
     margin-bottom: 30px;
 }
 
@@ -26,17 +26,24 @@
     width: 600px;
     height: auto;
     border-radius: 20px;
-    background-position: center;
-    text-shadow: 5px 2px 2px #000000;
-    
+    background-position: comtain;
+    text-shadow: 5px 2px 2px #000000;  
+}
+
+.lesson-img-container.off {
+    display: none;
 }
 
 .lesson-info {
-    margin-top: 50px;
+    margin: 50px 0 0 0;
+    padding: 10px;
     width: 100%;
     height: auto;
     display: grid;
-    justify-content: center;
+    grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
     grid-gap: 20px;
-    grid-template-columns: repeat(auto-fill, 400px); 
+}   
+
+.lesson-info h2 p {
+    margin: 0 .5em;
 }

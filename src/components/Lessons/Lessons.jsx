@@ -1,5 +1,6 @@
 import React from 'react';
 import { lessonPricingList } from './pricingList'
+import { useWindowWidth } from '../CustomHooks/hooks'
 import LessonCard from '../Card/LessonCard'
 import './container.css'
 import photo from './Laughing.png'
@@ -23,6 +24,7 @@ const DivStyle2 = {
 }
 
 const Lessons = () => {
+    const showImg = useWindowWidth() >= 800 ? 'lesson-img-container' : 'lesson-img-container off';
     return (
         <div className={'lesson-container'} style={backgroundImage}>
             <div className={'title-container'}>
@@ -33,7 +35,7 @@ const Lessons = () => {
                 when you sign up for your first lesson package.</h3>
             </div>
             <div className={'main-container'}>
-                <div className={'lesson-img-container'} style={divStyle}/>     
+                <div className={showImg} style={divStyle}/>     
                 <div className={'lesson-info'}>
                     {lessonPricingList.map((item, index) => {
                     return(

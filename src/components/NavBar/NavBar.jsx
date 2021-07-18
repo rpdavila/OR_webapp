@@ -13,7 +13,7 @@ import cart from "../images/shopping-cart.png";
 
 
 const NavBar = props => {
-    const showNav = useWindowWidth() >= 650 ? 'nav-list' : 'nav-list off';
+    const showNav = useWindowWidth() >= 768 ? 'nav-list' : 'nav-list off';
     const dispatch = useDispatch()
     const { isSignedIn } = useSelector((state) => state.isSignedIn);
 
@@ -46,9 +46,9 @@ const NavBar = props => {
                     {/* <li><Link to={'/register'} className={'nav-link'}>Register</Link></li>
                     <li><Link to={'/signin'} className={'nav-link'}>Sign-in</Link></li>      */}
                 </ul>
-                <div>
-                    <NavBarMobile click={props.drawerClickHandler} />
-                </div>
+                
+                <NavBarMobile click={props.drawerClickHandler} />
+                
             </nav>
         )  
     } else if (isSignedIn) {

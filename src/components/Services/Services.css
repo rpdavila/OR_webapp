@@ -2,14 +2,13 @@
     width: 100%;
     height: auto;
     display: flex;
-    flex-flow: wrap;
     justify-content: center;
 }
 
-.services-title {
+.services-title h1 {
     width: 100%;
     text-align: center;
-    height: fit-content;
+    height: auto;
     color: whitesmoke;
     text-shadow: 5px 2px 2px #000000;
 }
@@ -17,11 +16,20 @@
 .services-container {
     width: 100%;
     height: auto;
-    display: grid;
+    display: flex;
     justify-content: center;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    grid-gap: 10px;
-    grid-auto-flow: row;
+    flex-direction: row;
+    color: whitesmoke;
+    margin-bottom: 30px;
+    text-shadow: 3px 2px 2px #000000;
+}
+
+.services-container.flow {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
     color: whitesmoke;
     margin-bottom: 30px;
     text-shadow: 3px 2px 2px #000000;
@@ -31,7 +39,6 @@
     width: 100%;
     height: auto;
     color: whitesmoke;
-    /* background-color: black; */
     box-shadow: 0 1px 1px rgba(0,0,0,0.11),
               0 2px 2px rgba(0,0,0,0.11),
               0 4px 4px rgba(0,0,0,0.11),
@@ -40,14 +47,19 @@
 
 }
 
-.english-pedagogy > h1 {
-    text-align: center;
+.english-pedagogy h3 {
+    margin: 0 0 0 10px;
     text-decoration: underline;
     color: whitesmoke;
 }
 
+.english-pedagogy p {
+    padding: 30px;
+    text-align: center;
+    color: whitesmoke;
+}
+
 .trumpet-pedagogy {
-    align-content: flex-start;
     width: 100%;
     height: auto;
     color: whitesmoke;
@@ -58,8 +70,14 @@
               0 8px 16px rgba(0,0,0,0.11);
 }
 
-.trumpet-pedagogy > h1 {
-    text-align: center;
+.trumpet-pedagogy h3 {
+    margin: 0 0 0 10px;
     text-decoration: underline;
+    color: whitesmoke;
+}
+
+.trumpet-pedagogy p {
+    padding: 30px;
+    text-align: center;
     color: whitesmoke;
 }
