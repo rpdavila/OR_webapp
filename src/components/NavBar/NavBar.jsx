@@ -27,9 +27,11 @@ const NavBar = props => {
     if (!isSignedIn) {
         return(
             <nav className={'nav-bar'}>
-                <div className={'logo'}>
-                    <img src={Logo} alt={''}/>  
-                </div>
+                <Link to='/home'>
+                    <div className={'logo'}>
+                        <img src={Logo} alt={''}/>  
+                    </div>
+                </Link>
                 <div className="spacer" />
                 <ul className={showNav}>
                     {navLinks.map((item, index) => {
