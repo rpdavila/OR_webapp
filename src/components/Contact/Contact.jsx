@@ -77,6 +77,7 @@ const Contact = () => {
                 <select {...register('subject', { required: true})}>
                     <option value='Lesson Registration'>Lesson Registration</option>
                     <option value='Lesson Information'>Lesson Information</option>
+                    <option value='Lesson Information'>Other</option>
                 </select><br/>
                 
                 <label htmlFor='message'><b>Message:</b></label>

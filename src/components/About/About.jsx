@@ -1,5 +1,5 @@
 import React from "react";
-import image from "../../../src/components/images/chair.jpg"
+import image from "../../../src/components/images/piccolo.jpg"
 import bphoto from "../images/Paint.jpg"
 import { useWindowWidth } from '../CustomHooks/hooks'
 import './About.css'

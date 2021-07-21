@@ -57,7 +57,7 @@ function App () {
           <Route path={'/services'}>
             <Services />
           </Route>
-          <Route path={'/about'}>
+          <Route path={'/bio'}>
             <About />
           </Route>
           <Route path={'/lessons'}>
