@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import NavBar from "./components/NavBar/NavBar";
 import About from "./components/About/About";
@@ -13,14 +14,39 @@ import PrivacyPolicy from './components/PrivacyPolicy/PrivacyPolicy';
 import Amplify from '@aws-amplify/core'
 import config from '../src/aws-exports'
 import './App.css';
+import SideDrawer from './components/NavBar_Mobile/SideDrawer';
+import Backdrop from './components/Backdrop/Backdrop';
 
 Amplify.configure(config)
 
-function App() {
+function App () {
+  const [sideDrawerOpen, setSideDrawerOpen] = useState(false)
+  
+  
+
+  const drawerToggleClickHandler = () => {
+    setSideDrawerOpen(prevState => {
+      return !prevState.sideDrawerOpen
+    });
+  };
+
+  const backdropClickHandler = () => {
+    setSideDrawerOpen(false);
+  };
+
+  
+  let backdrop;
+
+  if (sideDrawerOpen) {
+    backdrop = <Backdrop click={backdropClickHandler}/>;
+  };
+
   return (
     <Router>
-      <div className="App">
-        <NavBar/>
+      <div className="App" style={{height: '100%'}}>
+        <NavBar drawerClickHandler={drawerToggleClickHandler}/>
+        <SideDrawer show={sideDrawerOpen} />
+        {backdrop}
         <Switch>
           <Route path={'/privacy'}>
             <PrivacyPolicy />
@@ -31,7 +57,7 @@ function App() {
           <Route path={'/services'}>
             <Services />
           </Route>
-          <Route path={'/about'}>
+          <Route path={'/bio'}>
             <About />
           </Route>
           <Route path={'/lessons'}>

@@ -1,6 +1,7 @@
 import React from "react";
-import image from "../../../src/components/images/chair.jpg"
+import image from "../../../src/components/images/piccolo.jpg"
 import bphoto from "../images/Paint.jpg"
+import { useWindowWidth } from '../CustomHooks/hooks'
 import './About.css'
 
 const backgroundImage = {
@@ -10,9 +11,10 @@ const backgroundImage = {
     backgroundSize: 'cover'
 }
 const About = () => {
+    const removeImage = useWindowWidth() >= 768? 'about-image-container' : 'about-image-container off' 
     return (
         <div className={'about-container'} style={backgroundImage}>
-            <div className={'about-image-container'}>
+            <div className={removeImage}>
                 <img className={'img'} src={image} alt={''}/>
             </div>
             <div className={'about-text'}>

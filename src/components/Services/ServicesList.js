@@ -26,7 +26,7 @@ export const trumpetFundamentals = [
 ]
 
 export const trumpetGoals = [
-    "All-city (U.S.A)",
+    "All-State",
     "College or Conservatory",
     "Military Band",
     "Symphony Orchestra",

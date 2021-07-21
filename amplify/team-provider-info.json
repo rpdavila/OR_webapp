@@ -1,4 +1,26 @@
 {
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-orwebapp-dev-162550-authRole",
+      "UnauthRoleArn": "arn:aws:iam::360204882659:role/amplify-orwebapp-dev-162550-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::360204882659:role/amplify-orwebapp-dev-162550-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-orwebapp-dev-162550-deployment",
+      "UnauthRoleName": "amplify-orwebapp-dev-162550-unauthRole",
+      "StackName": "amplify-orwebapp-dev-162550",
+      "StackId": "arn:aws:cloudformation:us-east-1:360204882659:stack/amplify-orwebapp-dev-162550/a83bcb30-e264-11eb-a525-12eba9bf230b",
+      "AmplifyAppId": "dbk8wdldq2b0v"
+    },
+    "categories": {
+      "function": {
+        "contactformuploader": {
+          "sesEmail": "rafael.pietri@gmail.com",
+          "deploymentBucketName": "amplify-orwebapp-dev-162550-deployment",
+          "s3Key": "amplify-builds/contactformuploader-6661684f35734751704a-build.zip"
+        }
+      }
+    }
+  },
   "staging": {
     "awscloudformation": {
       "AuthRoleName": "amplify-amplifya35cb549ebdb4-staging-11037-authRole",

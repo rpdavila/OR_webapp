@@ -5,7 +5,7 @@ export const navLinks = [
         cName: 'nav-link'
     },
     {
-        title: 'Pedagogical Model',
+        title: 'Pedagogical Services',
         url: '/services',
         cName: 'nav-link'
     },
@@ -15,8 +15,8 @@ export const navLinks = [
         cName: 'nav-link'
     },
     {
-        title: 'About',
-        url: '/about',
+        title: 'Bio',
+        url: '/bio',
         cName: 'nav-link'
     },
     {

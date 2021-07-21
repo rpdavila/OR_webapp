@@ -8,6 +8,11 @@
     margin: 0;
 }
 
+.about-image-container.off {
+    display: none;
+    
+}
+
 .img {
     margin-top: 80px;
     margin-left: 20px;
