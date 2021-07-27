@@ -4,5 +4,5 @@ console.log("This is a personal website to display services offered in the perfo
 # Front end framework
 import React from 'react'
 
-# backend framework
+# Backend framework
 console.log("AWS Amplify serverless backend triggering a lambda function and using a dynamodb stream with graphql");
