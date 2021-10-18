@@ -9,7 +9,7 @@ const divBackground = {
 }
 
 
-const LessonCard = ({id, title, price, time}) => {
+const LessonCard = ({id, title, price, time, numOfClasses }) => {
     const { user } = useSelector((state) => state.isUser);
     const dispatch = useDispatch();
 
@@ -21,8 +21,8 @@ const LessonCard = ({id, title, price, time}) => {
         return(
             <div className={'lesson-card'} style={divBackground}>
                 <h2>{title}</h2>
-                <span>Item Num.{id}</span>
-                <p>{time} min lesson(s) for ${price}</p>
+                <p>{numOfClasses}</p>
+                <p>{time}</p>
                 <button type={'submit'} value={'add'} onClick={() => addToCart({id ,title, time, price})}>Add to cart</button>            
             </div>
         )
@@ -30,7 +30,8 @@ const LessonCard = ({id, title, price, time}) => {
         return (
             <div className={'lesson-card'} style={divBackground}>
                 <h2>{title}</h2>
-                <p>{time} min lesson(s) for ${price}</p>
+                <p>{numOfClasses}</p>
+                <p>{time}</p>
             </div>
         )
     }

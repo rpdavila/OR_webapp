@@ -33,6 +33,7 @@
     grid-gap: 20px;
     grid-auto-flow: column;
     justify-content: flex-end;
+    align-items: center;
 }
 
 .nav-list.off {
@@ -55,3 +56,9 @@
     color: whitesmoke;
     }
 
+.language-select {
+    margin: 0;
+    padding: 0;
+    height: auto;
+    width: 100%;
+}

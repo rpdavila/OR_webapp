@@ -1,4 +1,10 @@
-import { CHANGE_IS_SIGNED_IN, CHANGE_USER, ERR, CART, REMOVE_CART_ITEM } from './constants'
+import { 
+    CHANGE_IS_SIGNED_IN, 
+    CHANGE_USER, 
+    ERR, CART, 
+    REMOVE_CART_ITEM, 
+    CHANGE_LANGUAGE 
+} from './constants'
 
 let initialStateIsSIgnedIn = {
     isSignedIn: false  
@@ -14,6 +20,10 @@ let initialStateHasError = {
 
 let initialStateCart = {
     cart: []
+}
+
+let initialStateLanguage = {
+    language: 'en'
 }
 
 export const isSignedIn = (state=initialStateIsSIgnedIn, action={}) => {
@@ -53,6 +63,15 @@ export const updateCart = (state=initialStateCart, action={}) => {
         // still needs work remove cart item is still returning undefined
         case REMOVE_CART_ITEM:
             return {cart: [...state.cart.filter((item, index) => index !== action.index)]}
+        default:
+            return state;
+    }
+}
+
+export const changeLanguage = (state=initialStateLanguage, action={}) => {
+    switch(action.type) {
+        case CHANGE_LANGUAGE:
+            return {...state, language: action.payload};
         default:
             return state;
     }

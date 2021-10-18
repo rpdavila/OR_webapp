@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useSelector } from "react-redux";
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import NavBar from "./components/NavBar/NavBar";
 import About from "./components/About/About";
@@ -12,6 +13,8 @@ import PrivacyPolicy from './components/PrivacyPolicy/PrivacyPolicy';
 // import Register from './components/Register/Register';
 // import ShoppingCart from './components/ShoppingCart/ShoppingCart';
 import Amplify from '@aws-amplify/core'
+import i18n from 'i18next';
+import './i18n';
 import config from '../src/aws-exports'
 import './App.css';
 import SideDrawer from './components/NavBar_Mobile/SideDrawer';
@@ -21,8 +24,8 @@ Amplify.configure(config)
 
 function App () {
   const [sideDrawerOpen, setSideDrawerOpen] = useState(false)
-  
-  
+  const { language } = useSelector((state) => state.changeLanguage);
+  i18n.changeLanguage(language);
 
   const drawerToggleClickHandler = () => {
     setSideDrawerOpen(prevState => {

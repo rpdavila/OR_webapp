@@ -3,7 +3,8 @@ import {
     CHANGE_IS_SIGNED_IN,
     CHANGE_USER,
     ERR,
-    REMOVE_CART_ITEM
+    REMOVE_CART_ITEM,
+    CHANGE_LANGUAGE
  } from './constants'
 
 
@@ -30,4 +31,9 @@ export const setCart = (cart) => ({
 export const setRemoveCartItem = (cart) => ({
     type: REMOVE_CART_ITEM,
     payload: cart
+})
+
+export const setLanguage = (language) => ({
+    type: CHANGE_LANGUAGE,
+    payload: language
 })

@@ -4,23 +4,19 @@ import { Provider } from 'react-redux'
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { isSignedIn, hasError, isUser, updateCart } from './Redux/reducers';
+import { isSignedIn, hasError, isUser, updateCart, changeLanguage } from './Redux/reducers';
 import { createStore, applyMiddleware, combineReducers } from 'redux';
 import thunk from 'redux-thunk';
 import logger from 'redux-logger';
 import Amplify from "aws-amplify";
 import awsExports from "./aws-exports";
+import './i18n';
 
 Amplify.configure(awsExports);
 
-let middleware = []
-if (process.env.NODE_ENV !== 'production') {
-  middleware = [thunk, logger ];
-}else {
-  middleware = [thunk];
-}
-const rootReducer = combineReducers({ isSignedIn, hasError, isUser, updateCart });
-const store = createStore(rootReducer, applyMiddleware(...middleware));
+
+const rootReducer = combineReducers({ isSignedIn, hasError, isUser, updateCart, changeLanguage});
+const store = createStore(rootReducer, applyMiddleware(thunk, logger));
 
 ReactDOM.render(
   <Provider store={store}>

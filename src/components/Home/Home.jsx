@@ -8,6 +8,8 @@ import Facebook from "../images/SocialMedia/f_logo_RGB-Blue_58.png";
 // import instagram from "../images/SocialMedia/Instagram_Glyph_Gradient_RGB.png";
 import u_tube from "../images/SocialMedia/youtube_social_squircle_red.png";
 import linked_in from "../images/SocialMedia/linkedin.png";
+import { useTranslation } from 'react-i18next';
+
 
 const backgroundImage = {
     backgroundImage: `linear-gradient(
@@ -18,12 +20,15 @@ const backgroundImage = {
 
 const Home = () => {
     const imageUrl = useWindowWidth() >= 650 ? desktopImage : mobileImage;
+    const { t } = useTranslation();
 
     return (
         <div className={'container'} style={backgroundImage}>
             <div className={'photo'} style={{backgroundImage: `url(${imageUrl})`}}>
                 <div className={'sm-container-home'}>                        
-                    <p><strong>Musician, Arranger, Educator, Soloist</strong></p>
+                    <p><strong>
+                        {t('homePageTitle')} 
+                    </strong></p>
                     <div className='sm-container'>   
                         <a href={'https://www.facebook.com/profile.php?id=100069268163237'}>
                             <img className={'f-social'} src={Facebook} alt={'facebook'}/>

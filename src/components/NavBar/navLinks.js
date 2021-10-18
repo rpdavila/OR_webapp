@@ -1,16 +1,31 @@
 export const navLinks = [
     {
-        title: 'Home',
+        'en':{
+            'title': "Home",
+        },
+        'es':{
+            'title': "Página Inicial"
+        },
         url: '/',
         cName: 'nav-link'
     },
     {
-        title: 'Pedagogical Services',
+        'en':{
+            'title': "Pedagogical Services" 
+        },
+        'es': {
+            'title': "Servicios Pedagogicos"
+        },
         url: '/services',
         cName: 'nav-link'
     },
     {
-        title: 'Lessons',
+        'en':{
+            'title': "Lessons"
+        },
+        'es': {
+            'title': "Lecciones de Instrumento"
+        },
         url: '/lessons',
         cName: 'nav-link'
     },

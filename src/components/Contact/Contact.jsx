@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useForm } from "react-hook-form";
 import { API } from 'aws-amplify'
 import { createCandidate } from '../../graphql/mutations'
+import { useTranslation } from 'react-i18next';
 import Image from "../images/Paint.jpg"
 import './contact.css';
 
@@ -15,6 +16,7 @@ const backgroundImage = {
 const Contact = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const [loading, setLoading] = useState(null);
+    const { t } = useTranslation();
     // const [response, setResponse] = useState({});
     const regxName = /^[a-z ,.'-]{2,}$/i
     const regxEmail = /^\S+@\S+$/
@@ -41,55 +43,55 @@ const Contact = () => {
     if (loading) {
         return (
             <div className='message-container' style={backgroundImage}>
-                <h1 id='success'>Sending Message...</h1>
+                <h1 id='success'>{t('contactFormSendingMessage')}</h1>
             </div>
         )
     }
     if (loading === false) {
         return(
             <div className='message-container' style={backgroundImage}>
-                <h1 id='success'>Message Sent</h1>;
+                <h1 id='success'>{t('contactFormMessageSent')}</h1>;
             </div>
         )     
     }
     return(
         <div className='register-container' style={backgroundImage}>  
             <form className={'form-container'} onSubmit={handleSubmit(onSubmit)} >
-                <label htmlFor='name'><b>Name:</b></label>
+                <label htmlFor='name'><b>{t('contactFormName')}</b></label>
                 <input {...register('name', { required: true, pattern: regxName})} />
-                {errors.name && errors.name.type ==='pattern' && <p id='error'>Name must be more than 2 characters long</p>}
-                {errors.name && errors.name.type ==='required' && <p id='error'>This field is required</p>}
+                {errors.name && errors.name.type ==='pattern' && <p id='error'>{t("contactFormErrorMessage.nameError")}</p>}
+                {errors.name && errors.name.type ==='required' && <p id='error'>{t("contactFormErrorMessage.requiredField")}</p>}
                 <br/>
 
-                <label htmlFor='email'><b>Email:</b></label>
+                <label htmlFor='email'><b>{t('contactFormEmail')}</b></label>
                 <input {...register('email', { required: true, pattern: regxEmail})} />
-                {errors.email && errors.email.type === 'required' && <p id='error'>This field is required</p>}
-                {errors.email && errors.email.type === 'pattern' && <p id='error'>Not a valid email</p>}
+                {errors.email && errors.email.type === 'required' && <p id='error'>{t("contactFormErrorMessage.requiredField")}</p>}
+                {errors.email && errors.email.type === 'pattern' && <p id='error'>{t('contactFormErrorMessages.emailError')}</p>}
                 <br/>    
 
-                <label htmlFor='phone'><b>Phone Number:</b></label>
+                <label htmlFor='phone'><b>{t('contactFormPhone')}</b></label>
                 <input {...register('phone', { required: true, pattern: regxPhone})} />
-                {errors.phone && errors.phone.type === 'pattern' && <p id='error'>Phone number must contain hyphens. Ex: 111-222-3333</p>}
-                {errors.phone && errors.phone.type === 'required' && <p id='error'>This Field is required</p>}
+                {errors.phone && errors.phone.type === 'pattern' && <p id='error'>{t("contactFormErrorMessage.phoneError")}</p>}
+                {errors.phone && errors.phone.type === 'required' && <p id='error'>{t("contactFormErrorMessage.requiredField")}</p>}
                 <br/>
 
-                <label htmlFor='subject'><b>Subject:</b></label>
+                <label htmlFor='subject'><b>{t('contactFormSubject')}</b></label>
                 <select {...register('subject', { required: true})}>
-                    <option value='Lesson Registration'>Lesson Registration</option>
-                    <option value='Lesson Information'>Lesson Information</option>
-                    <option value='Other'>Other</option>
+                    <option value='Lesson Registration'>{t("contactFormSubjectSwitch.lessonRegistration")}</option>
+                    <option value='Lesson Information'>{t("contactFormSubjectSwitch.lessonInformation")}</option>
+                    <option value='Other'>{t("contactFormSubjectSwitch.lessonOther")}</option>
                 </select><br/>
                 
-                <label htmlFor='message'><b>Message:</b></label>
+                <label htmlFor='message'><b>{t('contactFormMessage')}</b></label>
                 <textarea {...register('message', { required: true, minLength: 10})} style={{height:'200px'}}/>
-                {errors.message && errors.message.type === 'minLength' && <p id='error'>Must be 10 Characters or more to ba valid</p>}
-                {errors.message && errors.message.type === 'required' && <p id='error'>This field is required</p>}
+                {errors.message && errors.message.type === 'minLength' && <p id='error'>{t("contactFormErrorMessage.messageError")}</p>}
+                {errors.message && errors.message.type === 'required' && <p id='error'>{t("contactFormErrorMessage.requiredField")}</p>}
         
                 <button className='button-submit'
                     type='submit' 
                     name='submit' 
                     id='submit'
-                >Send Message</button>
+                >{t('contactFormSend')}</button>
             </form>   
         </div>
     )

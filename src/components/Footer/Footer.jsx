@@ -25,9 +25,9 @@ const Footer = () => {
             <div className={'cr-container'}>
                 &copy; Copyright 2021 Dr. Orlando Ruiz <br/>
                 <hr/>
-                <Link id='link' to='/privacy'><small>Privacy Policy</small></Link>
-            </div>
-            
+                <Link id='link' to='/privacy'><small>Privacy Policy</small></Link><br/>
+                <small>Website Design By: Rafael Pietri-Davila</small>
+            </div>            
         </div>
     );
 }

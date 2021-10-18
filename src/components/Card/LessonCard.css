@@ -11,8 +11,14 @@
     opacity: .5;   
 }
 
+.lesson-card h2 {
+    padding: 0;
+    margin: 10px;
+}
 
 .lesson-card  p {
+    padding: 0;
+    margin: 8px;
     font-size: 1.5rem;
 }
 .lesson-card:hover {
