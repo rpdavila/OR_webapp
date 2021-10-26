@@ -26,7 +26,7 @@ const Footer = () => {
                 &copy; Copyright 2021 Dr. Orlando Ruiz <br/>
                 <hr/>
                 <Link id='link' to='/privacy'><small>Privacy Policy</small></Link><br/>
-                <small>Website Design By: npom-g updateRafael Pietri-Davila</small>
+                <small>Website Design By: Rafael Pietri-Davila</small>
             </div>            
         </div>
     );
