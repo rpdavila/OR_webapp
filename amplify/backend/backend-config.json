@@ -8,8 +8,8 @@
           "defaultAuthentication": {
             "authenticationType": "API_KEY",
             "apiKeyConfig": {
-              "apiKeyExpirationDays": 7,
-              "description": "Contact form public API"
+              "apiKeyExpirationDays": 365,
+              "description": "Contact form public api"
             }
           },
           "additionalAuthenticationProviders": []
