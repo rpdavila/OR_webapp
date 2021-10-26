@@ -16,7 +16,7 @@
         "contactformuploader": {
           "sesEmail": "rafael.pietri@gmail.com",
           "deploymentBucketName": "amplify-orwebapp-dev-162550-deployment",
-          "s3Key": "amplify-builds/contactformuploader-6661684f35734751704a-build.zip"
+          "s3Key": "amplify-builds/contactformuploader-714d6f4c6c45336a3345-build.zip"
         }
       }
     }
