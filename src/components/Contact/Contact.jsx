@@ -59,20 +59,20 @@ const Contact = () => {
             <form className={'form-container'} onSubmit={handleSubmit(onSubmit)} >
                 <label htmlFor='name'><b>{t('contactFormName')}</b></label>
                 <input {...register('name', { required: true, pattern: regxName})} />
-                {errors.name && errors.name.type ==='pattern' && <p id='error'>{t("contactFormErrorMessage.nameError")}</p>}
-                {errors.name && errors.name.type ==='required' && <p id='error'>{t("contactFormErrorMessage.requiredField")}</p>}
+                {errors.name && errors.name.type ==='pattern' && <p id='error'>{t("contactFormErrorMessages.nameError")}</p>}
+                {errors.name && errors.name.type ==='required' && <p id='error'>{t("contactFormErrorMessages.requiredField")}</p>}
                 <br/>
 
                 <label htmlFor='email'><b>{t('contactFormEmail')}</b></label>
                 <input {...register('email', { required: true, pattern: regxEmail})} />
-                {errors.email && errors.email.type === 'required' && <p id='error'>{t("contactFormErrorMessage.requiredField")}</p>}
+                {errors.email && errors.email.type === 'required' && <p id='error'>{t("contactFormErrorMessages.requiredField")}</p>}
                 {errors.email && errors.email.type === 'pattern' && <p id='error'>{t('contactFormErrorMessages.emailError')}</p>}
                 <br/>    
 
                 <label htmlFor='phone'><b>{t('contactFormPhone')}</b></label>
                 <input {...register('phone', { required: true, pattern: regxPhone})} />
-                {errors.phone && errors.phone.type === 'pattern' && <p id='error'>{t("contactFormErrorMessage.phoneError")}</p>}
-                {errors.phone && errors.phone.type === 'required' && <p id='error'>{t("contactFormErrorMessage.requiredField")}</p>}
+                {errors.phone && errors.phone.type === 'pattern' && <p id='error'>{t("contactFormErrorMessages.phoneError")}</p>}
+                {errors.phone && errors.phone.type === 'required' && <p id='error'>{t("contactFormErrorMessages.requiredField")}</p>}
                 <br/>
 
                 <label htmlFor='subject'><b>{t('contactFormSubject')}</b></label>
@@ -84,8 +84,8 @@ const Contact = () => {
                 
                 <label htmlFor='message'><b>{t('contactFormMessage')}</b></label>
                 <textarea {...register('message', { required: true, minLength: 10})} style={{height:'200px'}}/>
-                {errors.message && errors.message.type === 'minLength' && <p id='error'>{t("contactFormErrorMessage.messageError")}</p>}
-                {errors.message && errors.message.type === 'required' && <p id='error'>{t("contactFormErrorMessage.requiredField")}</p>}
+                {errors.message && errors.message.type === 'minLength' && <p id='error'>{t("contactFormErrorMessages.messageError")}</p>}
+                {errors.message && errors.message.type === 'required' && <p id='error'>{t("contactFormErrorMessages.requiredField")}</p>}
         
                 <button className='button-submit'
                     type='submit' 

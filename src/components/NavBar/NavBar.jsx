@@ -50,8 +50,7 @@ const NavBar = props => {
                             <option value='en'>English</option>
                             <option value='es'>Español</option>
                         </select>
-                    </li>
-                         
+                    </li>                         
                 </ul>
                 <NavBarMobile click={props.drawerClickHandler} />
             </nav>
