@@ -47,7 +47,7 @@ const Contact = () => {
             </div>
         )
     }
-    if (!loading) {
+    if (loading === false) {
         return(
             <div className='message-container' style={backgroundImage}>
                 <h1 id='success'>{t('contactFormMessageSent')}</h1>;
