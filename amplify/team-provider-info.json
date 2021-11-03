@@ -15,7 +15,7 @@
       "function": {
         "contactformuploader": {
           "deploymentBucketName": "amplify-orwebapp-dev-162550-deployment",
-          "s3Key": "amplify-builds/contactformuploader-714d6f4c6c45336a3345-build.zip",
+          "s3Key": "amplify-builds/contactformuploader-6b6c2f58307837465434-build.zip",
           "sesEmail": "rafael.pietri@gmail.com"
         }
       }
@@ -37,7 +37,7 @@
       "function": {
         "contactformuploader": {
           "deploymentBucketName": "amplify-amplifya35cb549ebdb4-staging-11037-deployment",
-          "s3Key": "amplify-builds/contactformuploader-6661684f35734751704a-build.zip",
+          "s3Key": "amplify-builds/contactformuploader-714d6f4c6c45336a3345-build.zip",
           "sesEmail": "dr.oruiztrumpet@gmail.com"
         }
       }

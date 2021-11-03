@@ -57,6 +57,7 @@
     "contactFormPhone": "Phone:",
     "contactFormSubject": "Subject:",
     "contactFormMessage": "Message:",
+    "contactFormMessageSent": "Message Sent",
     "contactFormSend": "Send Message",
     "contactFormSendingMessage": "Sending Message",
     "contactFormErrorMessages": {
