@@ -7,7 +7,7 @@ import reportWebVitals from './reportWebVitals';
 import { isSignedIn, hasError, isUser, updateCart, changeLanguage } from './Redux/reducers';
 import { createStore, applyMiddleware, combineReducers } from 'redux';
 import thunk from 'redux-thunk';
-import logger from 'redux-logger';
+// import logger from 'redux-logger'; ---> for debug purposesn
 import Amplify from "aws-amplify";
 import awsExports from "./aws-exports";
 import './i18n';
@@ -16,7 +16,7 @@ Amplify.configure(awsExports);
 
 
 const rootReducer = combineReducers({ isSignedIn, hasError, isUser, updateCart, changeLanguage});
-const store = createStore(rootReducer, applyMiddleware(thunk, logger));
+const store = createStore(rootReducer, applyMiddleware(thunk));
 
 ReactDOM.render(
   <Provider store={store}>
