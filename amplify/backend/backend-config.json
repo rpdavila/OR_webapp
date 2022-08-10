@@ -9,12 +9,14 @@
             "authenticationType": "API_KEY",
             "apiKeyConfig": {
               "apiKeyExpirationDays": 365,
+              "apiKeyExpirationDate": "2023-08-10T14:12:43.522Z",
               "description": "Contact form public api"
             }
           },
           "additionalAuthenticationProviders": []
         }
-      }
+      },
+      "dependsOn": []
     }
   },
   "function": {
