@@ -1,35 +1,63 @@
 {
   "api": {
     "orwebapp": {
-      "service": "AppSync",
-      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
       "output": {
         "authConfig": {
+          "additionalAuthenticationProviders": [],
           "defaultAuthentication": {
-            "authenticationType": "API_KEY",
             "apiKeyConfig": {
+              "apiKeyExpirationDate": "2024-01-11T14:17:35.280Z",
               "apiKeyExpirationDays": 365,
               "description": "Contact form public api"
-            }
-          },
-          "additionalAuthenticationProviders": []
+            },
+            "authenticationType": "API_KEY"
+          }
         }
-      }
+      },
+      "providerPlugin": "awscloudformation",
+      "service": "AppSync"
     }
   },
   "function": {
     "contactformuploader": {
       "build": true,
-      "providerPlugin": "awscloudformation",
-      "service": "Lambda",
       "dependsOn": [
         {
-          "category": "api",
-          "resourceName": "orwebapp",
           "attributes": [
             "GraphQLAPIIdOutput",
             "GraphQLAPIEndpointOutput"
-          ]
+          ],
+          "category": "api",
+          "resourceName": "orwebapp"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    }
+  },
+  "parameters": {
+    "AMPLIFY_function_contactformuploader_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "contactformuploader"
+        }
+      ]
+    },
+    "AMPLIFY_function_contactformuploader_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "contactformuploader"
+        }
+      ]
+    },
+    "AMPLIFY_function_contactformuploader_sesEmail": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "contactformuploader"
         }
       ]
     }

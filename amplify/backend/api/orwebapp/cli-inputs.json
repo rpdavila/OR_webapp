@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "serviceConfiguration": {
+    "serviceName": "AppSync",
+    "defaultAuthType": {
+      "mode": "API_KEY",
+      "expirationTime": 365,
+      "apiKeyExpirationDate": "2024-01-11T14:17:35.280Z",
+      "keyDescription": "Contact form public api"
+    },
+    "conflictResolution": {},
+    "apiName": "orwebapp",
+    "additionalAuthTypes": []
+  }
+}
