@@ -7,7 +7,7 @@
           "additionalAuthenticationProviders": [],
           "defaultAuthentication": {
             "apiKeyConfig": {
-              "apiKeyExpirationDate": "2024-01-11T14:17:35.280Z",
+              "apiKeyExpirationDate": "2024-01-11T14:59:54.165Z",
               "apiKeyExpirationDays": 365,
               "description": "Contact form public api"
             },
